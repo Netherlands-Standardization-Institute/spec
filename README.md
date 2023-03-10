@@ -1,8 +1,8 @@
-# Technical Specfications Ontology (SPEC)
+# Specifications Ontology (SPEC)
 
-The Technical Specfications Ontology (SPEC) 
+The Specifications Ontology (SPEC) 
 
-The Technical Specifications Ontology provides a structured vocabulary written in OWL 2 DL of technical specifications, enabling to be describe the structure of these specifications in RDF.
+The Specifications Ontology provides a structured vocabulary written in OWL 2 DL of technical specifications. This allows technical specifications to be described in RDF.
 
 **Creators**: [Robert Matousek](https://kweri.nl)
 
@@ -10,4 +10,4 @@ The Technical Specifications Ontology provides a structured vocabulary written i
 
 **Website:** https://specified.ai/ontologies/spec
 
-**Cite as:** Matousek, R. (2023). The Technical Specifications Ontology (SPEC).
+**Cite as:** Matousek, R. (2023). The Specifications Ontology (SPEC).
