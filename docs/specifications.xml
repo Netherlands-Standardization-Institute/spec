@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:dc11="http://purl.org/dc/elements/1.1/"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+  <owl:Ontology rdf:about="https://specified.ai/ontologies/spec/">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</owl:versionInfo>
+    <dc11:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Robert Matousek</dc11:creator>
+    <dc11:date>2023-01-09</dc11:date>
+    <dc11:title xml:lang="en">Technical Specifications Ontology</dc11:title>
+    <dc11:description xml:lang="en">The Technical Specifications Ontology provides a structured vocabulary written in OWL 2 DL of technical specifications. This allows technical specifications to be described in RDF.</dc11:description>
+    <rdfs:comment xml:lang="en">The Technical Specifications Ontology provides a structured vocabulary written in OWL 2 DL of technical specifications. This allows technical specifications to be described in RDF.
+
+**URL:** https://specified.ai/ontologies/spec/
+
+**Creators**: Robert Matousek
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** https://specified.ai
+
+**Cite as:** Matousek, R.(2023). Technical Specifications Ontology. </rdfs:comment>
+    <rdfs:comment xml:lang="en">This ontology is available at https://specified.ai/ontologies/spec/, and uses the namespace prefix spec.</rdfs:comment>
+    <dc11:rights xml:lang="en">This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/).</dc11:rights>
+    <owl:imports rdf:resource="http://purl.org/spar/doco/"/>
+    <owl:versionIRI rdf:resource="https://specified.ai/ontologies/spec/1.0"/>
+  </owl:Ontology>
+
+  <owl:Class rdf:about="https://specified.ai/ontologies/spec/Statement">
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/doco/TextChunk"/>
+    <rdfs:label xml:lang="en">Clause</rdfs:label>
+    <rdfs:label xml:lang="nl">Clausule</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://specified.ai/ontologies/spec/Requirement">
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/doco/Sentence"/>
+    <rdfs:label xml:lang="en">Requirement</rdfs:label>
+    <rdfs:label xml:lang="nl">Eis</rdfs:label>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/Recommendation"/>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/Permission"/>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/Possibility"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://specified.ai/ontologies/spec/Recommendation">
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/doco/Sentence"/>
+    <rdfs:label xml:lang="en">Recommendation</rdfs:label>
+    <rdfs:label xml:lang="nl">Aanbeveling</rdfs:label>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/Requirement"/>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/Permission"/>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/Possibility"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://specified.ai/ontologies/spec/Possibility">
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/doco/Sentence"/>
+    <rdfs:label xml:lang="en">Possibility</rdfs:label>
+    <rdfs:label xml:lang="nl">Optie</rdfs:label>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/Requirement"/>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/Recommendation"/>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/Permission"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://specified.ai/ontologies/spec/Permission">
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/doco/Sentence"/>
+    <rdfs:label xml:lang="en">Permission</rdfs:label>
+    <rdfs:label xml:lang="nl">Toestemming</rdfs:label>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/Requirement"/>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/Recommendation"/>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/Possibility"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://specified.ai/ontologies/spec/LatexFormula">
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/doco/Formula"/>
+    <rdfs:label xml:lang="en">Latex Formula</rdfs:label>
+    <rdfs:label xml:lang="nl">Latex Formule</rdfs:label>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/StrictContentMathMLFormula"/>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/ContentMathMLFormula"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://specified.ai/ontologies/spec/StrictContentMathMLFormula">
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/doco/Formula"/>
+    <rdfs:label xml:lang="en">Strict MathML Formula</rdfs:label>
+    <rdfs:label xml:lang="nl">Strict MathML Formule</rdfs:label>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/LatexFormula"/>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/ContentMathMLFormula"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://specified.ai/ontologies/spec/ContentMathMLFormula">
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/doco/Formula"/>
+    <rdfs:label xml:lang="en">Content MathML Formula</rdfs:label>
+    <rdfs:label xml:lang="nl">Content MathML Formule</rdfs:label>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/LatexFormula"/>
+    <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/StrictContentMathMLFormula"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://specified.ai/ontologies/spec/MarkdownList">
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/doco/List"/>
+    <rdfs:label xml:lang="en">Markdown List</rdfs:label>
+    <rdfs:label xml:lang="nl">Markdown Lijst</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="https://specified.ai/ontologies/spec/HTMLList">
+        <rdfs:subClassOf rdf:resource="http://purl.org/spar/doco/List"/>
+        <rdfs:label xml:lang="en">HTML List</rdfs:label>
+        <rdfs:label xml:lang="nl">HTML Lijst</rdfs:label>
+        <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/MarkdownList"/>
+      </owl:Class>
+    </owl:disjointWith>
+
+  </owl:Class>
+
+  <owl:Class rdf:about="https://specified.ai/ontologies/spec/MarkdownTable">
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/doco/Table"/>
+    <rdfs:label xml:lang="en">Markdown Table</rdfs:label>
+    <rdfs:label xml:lang="nl">Markdown Tabel</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="https://specified.ai/ontologies/spec/HTMLTable">
+        <rdfs:subClassOf rdf:resource="http://purl.org/spar/doco/Table"/>
+        <rdfs:label xml:lang="en">HTML Table</rdfs:label>
+        <rdfs:label xml:lang="nl">HTML Tabel</rdfs:label>
+        <owl:disjointWith rdf:resource="https://specified.ai/ontologies/spec/MarkdownTable"/>
+      </owl:Class>
+    </owl:disjointWith>
+
+  </owl:Class>
+
+</rdf:RDF>
