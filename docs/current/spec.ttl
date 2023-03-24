@@ -1,0 +1,272 @@
+@prefix : <https://specified.ai/ontologies/spec/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://specified.ai/ontologies/spec/> .
+
+<https://specified.ai/ontologies/spec/> rdf:type owl:Ontology ;
+                            
+    owl:versionInfo "1.0"^^xsd:string ;
+                            
+    dc:creator "Robert Matousek"^^xsd:string ;
+                            
+    dc:date "2023-03-24" ;
+                            
+    dc:title "Specifications Ontology"@en ;
+                            
+    dc:description "The Specifications Ontology provides a structured vocabulary written in OWL 2 DL of technical specifications. This allows technical specifications to be described in RDF."@en ;
+                            
+    rdfs:comment """The Specifications Ontology provides a structured vocabulary written in OWL 2 DL of technical specifications. This allows technical specifications to be described in RDF.
+
+**URL:** https://specified.ai/ontologies/spec/
+
+**Creators**: Robert Matousek
+
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Website:** https://specified.ai
+
+**Cite as:** Matousek, R.(2023). The Specifications Ontology. """@en ,
+                                         "This ontology is available at https://specified.ai/ontologies/spec/, and uses the namespace prefix spec."@en ;
+                            
+    dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
+                            
+    owl:imports <http://purl.org/spar/doco/> ;
+                            
+    owl:versionIRI <https://specified.ai/ontologies/spec/1.0> .
+	
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+###  https://specified.ai/ontologies/spec/Statement/contains
+
+# a requirement contains another requirement or sentence, e.g. '... in accordance with requirements 019-024' 
+
+:contains rdf:type owl:ObjectProperty ;
+    rdfs:domain :Requirement ;
+    rdfs:range doco:Sentence .
+
+###  https://specified.ai/ontologies/spec/Statement/is-part-of
+
+# a requirement can be part of another requirement
+
+###  https://specified.ai/ontologies/spec/Statement/and
+
+# intersection of requirements, e.g. 172 and 014 are required
+
+###  https://specified.ai/ontologies/spec/Statement/or
+
+# union of requirements, e.g. A or B is required
+
+###  https://specified.ai/ontologies/spec/Statement/if-then
+
+# conditional requirement, e.g. if A is applicable then B is required
+
+### https://specified.ai/ontologies/spec/Statement/see
+
+# a clause can refer to another object, e.g. 'see Figure 1'
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+###  https://specified.ai/ontologies/spec/Statement
+		   
+:Statement rdf:type owl:Class ;
+	rdfs:subClassOf doco:TextChunk ;
+	rdfs:label "Clause"@en ,"Clausule"@nl .
+
+# REQUIREMENTS
+###  https://specified.ai/ontologies/spec/Requirement
+
+:Requirement rdf:type owl:Class ;
+	rdfs:subClassOf doco:Sentence ;
+	rdfs:label "Requirement"@en ,"Eis"@nl .
+
+# Different types of requirements: 
+# activity (process), constraint (system), functional (system), integral aspect (system), interface (system)
+# unstructured versus structured requirements
+
+# CONDITIONS
+###
+:Conditions rdf:type owl:Class ;
+	rdfs:label "Conditions"@en ,"Condities"@nl ;
+	rdfs:comment "The conditions during which the action takes place or to initiate the performance."@en .
+
+# SYSTEM
+###
+:Systems rdf:type owl:Class ;
+	rdfs:label "Systems"@en ,"Systemen"@nl ;
+	rdfs:comment "The specific system or object that shall deliver the required performance."@en .
+
+# ACTORS
+###
+:Actors rdf:type owl:Class ;
+	rdfs:label "Actors"@en ,"Acteurs"@nl ;
+	rdfs:comment "For whom or what the service should be provided or the thing acted upon."@en .
+
+# BINDINGNESS (MODAL VERB)
+###
+:Bindingness a  owl:Class .
+	rdfs:label "Bindingness"@en ,"Bindenheid"@nl ;
+	rdfs:comment "The quality of being binding."@en ,
+				 "De mate waarin iets vereist is."@nl .
+
+:Shall  a  :Bindingness;
+    rdfs:label  "Shall"@en, "Moet"@nl;
+    rdfs:comment "Indicates a requirement."@en ,
+                 "Geeft een vereiste aan."@nl .			
+:Should  a  :Bindingness .
+    rdfs:label  "Should"@en, "Zou moeten"@nl;
+    rdfs:comment "Indicates a recommendation."@en ,
+                 "Geeft een aanbeveling aan."@nl .	
+:May  a  :Bindingness .
+    rdfs:label  "Provisional"@en, "Provisoire"@nl;
+    rdfs:comment "Indicates a permission."@en ,
+                 "Geeft toestemming aan."@nl .	
+:Can  a  :Bindingness .
+    rdfs:label  "Provisional"@en, "Provisoire"@nl;
+    rdfs:comment "Indicates a possibility or a capability."@en ,
+                 "Geeft een mogelijkheid aan."@nl .				 
+[]  a  owl:AllDifferent;
+    owl:members  ( :Shall :Should :May :Can ) .
+
+
+# only allow Shall, Should, May, and Can as bindingness
+#:Bindingness  rdfs:subClassOf  [
+#    a  owl:Class;
+#    owl:oneOf  ( :Shall :Should :May :Can )
+#] .
+
+# MAIN VERBS
+###
+:MainVerbs rdf:type owl:Class ;
+	rdfs:label "Main verbs"@en ,"Hoofd werkwoorden"@nl ;
+	rdfs:comment "The action, occurrence, or a state of being."@en .
+
+# PERFORMANCES
+###
+:Performance rdf:type owl:Class ;
+	rdfs:label "Performance"@en ,"Prestatie"@nl ;
+	rdfs:comment "The measurable performance that is required or constraint of the action." .
+
+:Property rdf:type owl:Class ;
+	rdfs:subClassOf :Performance ;
+	rdfs:label "Property"@en ,"Eigenschap"@nl ;
+
+:Function rdf:type owl:Class ;
+	rdfs:subClassOf :Performance ;
+	rdfs:label "Function"@en ,"Functie"@nl ;
+
+:Activity rdf:type owl:Class ;
+	rdfs:subClassOf :Performance ;
+	rdfs:label "Activity"@en, "Activiteit"@en ;
+	
+:Reference rdf:type owl:Class ;
+	rdfs:subClassOf :Performance ;
+	rdfs:label "Reference"@en ,"Verwijzing"@nl ;
+
+# MARGIN
+###
+:Margin rdf:type owl:Class ;
+	rdfs:label "Error margin"@en ,"Foutmarge"@nl ;
+	rdfs:comment "Tolerance or limitations on the required performance."@en ,
+		"Tolerantie of beperkingen op de vereiste prestaties."@nl .
+
+# PROPERTIES
+###
+:hasConditions rdf:type owl:ObjectProperty ;
+    rdfs:domain :Requirement ;
+    rdfs:range :Conditions .
+
+:hasSystems rdf:type owl:DataProperty ;
+    rdfs:domain :Requirement ;
+    rdfs:range : xsd:string .
+
+:hasBindingness a owl:ObjectProperty;
+    rdfs:domain :Requirement ;
+	rdfs:range	:Bindingness .
+
+:hasMainVerbs a owl;DataProperty;
+    rdfs:domain :Requirement ;
+    rdfs:range : xsd:string .
+
+:hasPerformances rdf:type owl:DataProperty ;
+    rdfs:domain :Requirement ;
+    rdfs:range : xsd:string .
+
+:hasMargin rdf:type owl:DataProperty ;
+    rdfs:domain :Performance ;
+    rdfs:range : xsd:string .
+
+# FIGURES
+### http://purl.org/spar/doco/Figure
+### Communication object comprising one or more graphics, drawings, images, or other visual representations.
+
+
+# FORMULAS
+###  https://specified.ai/ontologies/spec/LatexFormula
+
+:LatexFormula rdf:type owl:Class ;
+	rdfs:subClassOf doco:Formula ;
+	rdfs:label "Latex Formula"@en ,"Latex Formule"@nl ;
+	owl:disjointWith :StrictContentMathMLFormula, :ContentMathMLFormula .
+
+###  https://specified.ai/ontologies/spec/StrictContentMathMLFormula
+
+:StrictContentMathMLFormula rdf:type owl:Class ;
+	rdfs:subClassOf doco:Formula ;
+	rdfs:label "Strict MathML Formula"@en ,"Strict MathML Formule"@nl ;
+	owl:disjointWith :LatexFormula, :ContentMathMLFormula .
+
+###  https://specified.ai/ontologies/spec/ContentMathMLFormula
+
+:ContentMathMLFormula rdf:type owl:Class ;
+	rdfs:subClassOf doco:Formula ;
+	rdfs:label "Content MathML Formula"@en ,"Content MathML Formule"@nl ;
+	owl:disjointWith :LatexFormula, :StrictContentMathMLFormula .
+
+# LISTS
+###  https://specified.ai/ontologies/spec/MarkdownList
+
+:MarkdownList rdf:type owl:Class ;
+	rdfs:subClassOf doco:List ;
+	rdfs:label "Markdown List"@en ,"Markdown Lijst"@nl ;
+	owl:disjointWith :HTMLList .
+
+###  https://specified.ai/ontologies/spec/HTMLList
+
+:HTMLList rdf:type owl:Class ;
+	rdfs:subClassOf doco:List ;
+	rdfs:label "HTML List"@en ,"HTML Lijst"@nl ;
+	owl:disjointWith :MarkdownList .
+
+# TABLES
+###  https://specified.ai/ontologies/spec/MarkdownTable
+
+:MarkdownTable rdf:type owl:Class ;
+	rdfs:subClassOf doco:Table ;
+	rdfs:label "Markdown Table"@en ,"Markdown Tabel"@nl ;
+	owl:disjointWith :HTMLTable .
+
+###  https://specified.ai/ontologies/spec/HTMLTable
+
+:HTMLTable rdf:type owl:Class ;
+	rdfs:subClassOf doco:Table ;
+	rdfs:label "HTML Table"@en ,"HTML Tabel"@nl ;
+	owl:disjointWith :MarkdownTable .
