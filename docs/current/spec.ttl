@@ -122,24 +122,24 @@
 
 # BINDINGNESS (MODAL VERB)
 ###
-:Bindingness a  owl:Class .
+:Bindingness a  owl:Class ;
 	rdfs:label "Bindingness"@en ,"Bindenheid"@nl ;
 	rdfs:comment "The quality of being binding."@en ,
 				 "De mate waarin iets vereist is."@nl .
 
-:Shall  a  :Bindingness;
+:Shall  a  :Bindingness ;
     rdfs:label  "Shall"@en, "Moet"@nl;
     rdfs:comment "Indicates a requirement."@en ,
                  "Geeft een vereiste aan."@nl .			
-:Should  a  :Bindingness .
+:Should  a  :Bindingness ;
     rdfs:label  "Should"@en, "Zou moeten"@nl;
     rdfs:comment "Indicates a recommendation."@en ,
                  "Geeft een aanbeveling aan."@nl .	
-:May  a  :Bindingness .
+:May  a  :Bindingness ;
     rdfs:label  "Provisional"@en, "Provisoire"@nl;
     rdfs:comment "Indicates a permission."@en ,
                  "Geeft toestemming aan."@nl .	
-:Can  a  :Bindingness .
+:Can  a  :Bindingness ;
     rdfs:label  "Provisional"@en, "Provisoire"@nl;
     rdfs:comment "Indicates a possibility or a capability."@en ,
                  "Geeft een mogelijkheid aan."@nl .				 
@@ -167,19 +167,19 @@
 
 :Property rdf:type owl:Class ;
 	rdfs:subClassOf :Performance ;
-	rdfs:label "Property"@en ,"Eigenschap"@nl ;
+	rdfs:label "Property"@en ,"Eigenschap"@nl .
 
 :Function rdf:type owl:Class ;
 	rdfs:subClassOf :Performance ;
-	rdfs:label "Function"@en ,"Functie"@nl ;
+	rdfs:label "Function"@en ,"Functie"@nl .
 
 :Activity rdf:type owl:Class ;
 	rdfs:subClassOf :Performance ;
-	rdfs:label "Activity"@en, "Activiteit"@en ;
+	rdfs:label "Activity"@en, "Activiteit"@en .
 	
 :Reference rdf:type owl:Class ;
 	rdfs:subClassOf :Performance ;
-	rdfs:label "Reference"@en ,"Verwijzing"@nl ;
+	rdfs:label "Reference"@en ,"Verwijzing"@nl .
 
 # MARGIN
 ###
@@ -196,23 +196,23 @@
 
 :hasSystems rdf:type owl:DataProperty ;
     rdfs:domain :Requirement ;
-    rdfs:range : xsd:string .
+    rdfs:range  xsd:string .
 
 :hasBindingness a owl:ObjectProperty;
     rdfs:domain :Requirement ;
 	rdfs:range	:Bindingness .
 
-:hasMainVerbs a owl;DataProperty;
+:hasMainVerbs a owl:DataProperty;
     rdfs:domain :Requirement ;
-    rdfs:range : xsd:string .
+    rdfs:range  xsd:string .
 
 :hasPerformances rdf:type owl:DataProperty ;
     rdfs:domain :Requirement ;
-    rdfs:range : xsd:string .
+    rdfs:range  xsd:string .
 
 :hasMargin rdf:type owl:DataProperty ;
     rdfs:domain :Performance ;
-    rdfs:range : xsd:string .
+    rdfs:range  xsd:string .
 
 # FIGURES
 ### http://purl.org/spar/doco/Figure

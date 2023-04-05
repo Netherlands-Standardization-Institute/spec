@@ -1,0 +1,336 @@
+@prefix : <https://specified.ai/ontologies/spec/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix pattern: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix nen2660: <https://w3id.org/nen2660/def#> .
+
+
+<https://specified.ai/ontologies/spec/> rdf:type owl:Ontology ;
+    owl:versionInfo "1.0"^^xsd:string ;
+    dc:creator "Robert Matousek"^^xsd:string ;
+    dc:date "2023-03-24" ;
+    dc:title "Specifications Ontology"@en ;
+    dc:description "The Specifications Ontology provides a structured vocabulary written in OWL 2 DL of technical specifications. This allows technical specifications to be described in RDF."@en ;               
+    rdfs:comment 
+        """The Specifications Ontology provides a structured vocabulary written in OWL 2 DL of technical specifications. This allows technical specifications to be described in RDF.
+        **URL:** https://specified.ai/ontologies/spec/
+        **Creators**: Robert Matousek
+        *License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+        **Website:** https://specified.ai
+        **Cite as:** Matousek, R.(2023). The Specifications Ontology. """@en ,
+        "This ontology is available at https://specified.ai/ontologies/spec/, and uses the namespace prefix spec."@en ;
+    dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
+    owl:imports <http://purl.org/spar/doco/>, <http://www.essepuntato.it/2008/12/pattern#> ;
+	owl:versionIRI <https://specified.ai/ontologies/spec/1.0> ;
+	.
+
+### TODO ### 
+# https://specified.ai/ontologies/spec/Statement/see
+#   a clause can refer to another object, e.g. 'see Figure 1'
+#   Can be rdfs:seeAlso? Or dct:references
+
+# Different types of Requirements: 
+#   activity (process), constraint (system), functional (system), integral aspect (system), interface (system)
+#   unstructured versus structured requirements
+
+# Min and Max counts op de Shapes?
+
+
+# REQUIREMENTS / STATEMENT
+
+:Statement rdf:type rdfs:Class, sh:NodeShape ;
+	rdfs:subClassOf doco:TextChunk ;
+	rdfs:label "Clause"@en ,"Clausule"@nl ;
+	.
+#? Statement staat nu los?
+
+:Requirement rdf:type rdfs:Class, sh:NodeShape ;
+	rdfs:seeAlso nen2660:Requirement ;	
+#	rdfs:subClassOf doco:Sentence ;
+	rdfs:label "Requirement"@en ,"Eis"@nl ;
+	sh:property :RequirementContains, :RequirementContainer, :RequirementBindingness, :RequirementPerformance, :RequirementConditions, :RequirementSystems, :RequirementMainVerbs, :RequirementMargin, :RequirementActor ;
+	.
+
+## REQUIREMENTS SHAPES
+
+:RequirementContains rdf:type sh:PropertyShape ;
+	sh:path pattern:contains ; 
+	sh:class doco:Sentence ;
+	.
+# a requirement contains another requirement or sentence, e.g. '... in accordance with requirements 019-024' 
+#? Moet een requirement als onderdeel een sentence hebben of statement (textchunk)
+
+:RequirementContainer rdf:type sh:PropertyShape ;
+    sh:path pattern:isContainedBy ;
+    sh:class :Statement ;
+    .
+
+:RequirementBindingness rdf:type sh:PropertyShape ;
+	sh:path :hasBindingness ;
+	sh:class :Bindingness ;
+	sh:maxCount 1 ;
+	.
+
+:RequirementPerformance rdf:type sh:PropertyShape ;
+	sh:path :hasPerformances ;
+	sh:class :Performance ;
+	.
+
+:RequirementConditions rdf:type sh:PropertyShape ;
+	sh:path :hasConditions ;
+	sh:class :Conditions ;
+	.
+
+:RequirementSystems rdf:type sh:PropertyShape ;
+	sh:path :hasSystems ;
+	sh:class :Systems ;
+	.
+
+:RequirementMainVerbs rdf:type sh:PropertyShape ;
+	sh:path :hasMainVerbs ;
+	sh:class :MainVerbs ;
+	.
+
+:RequirementMargin rdf:type sh:PropertyShape ;
+	sh:path :hasMargin ;
+	sh:class :Margin ;
+	.
+
+:RequirementActor rdf:type sh:PropertyShape ;
+	sh:path :hasActor ;
+	sh:class :Actors ;
+	.
+
+# PROPERTIES
+
+:hasBindingness rdf:type owl:ObjectProperty ;
+	.
+
+:hasPerformances rdf:type owl:DataProperty ;
+	.
+
+:hasConditions rdf:type owl:ObjectProperty ;
+	.
+
+:hasSystems rdf:type owl:DataProperty ;
+	.
+
+:hasMainVerbs rdf:type owl:DataProperty ;
+	.
+
+:hasMargin rdf:type owl:DataProperty ;
+	.
+
+:hasActor rdf:type owl:DataProperty ;
+	.
+
+## PROPERTY BINDINGNESS (MODAL VERB)
+
+:Bindingness rdf:type rdfs:Class ;
+	rdfs:label "Bindingness"@en ,"Bindenheid"@nl ;
+	rdfs:comment "The quality of being binding."@en , "De mate waarin iets vereist is."@nl .
+
+:Shall rdf:type :Bindingness ;
+    rdfs:label  "Shall"@en, "Moet"@nl;
+    rdfs:comment "Indicates a requirement."@en , "Geeft een vereiste aan."@nl .			
+:Should rdf:type :Bindingness ;
+    rdfs:label  "Should"@en, "Zou moeten"@nl;
+    rdfs:comment "Indicates a recommendation."@en , "Geeft een aanbeveling aan."@nl .	
+:May rdf:type :Bindingness ;
+    rdfs:label  "Provisional"@en, "Provisoire"@nl;
+    rdfs:comment "Indicates a permission."@en , "Geeft toestemming aan."@nl .	
+:Can rdf:type :Bindingness ;
+    rdfs:label  "Provisional"@en, "Provisoire"@nl;
+    rdfs:comment "Indicates a possibility or a capability."@en , "Geeft een mogelijkheid aan."@nl ;
+	.
+
+## PROPERTY PERFORMANCES
+
+:Performance rdf:type rdfs:Class ;
+	rdfs:label "Performance"@en ,"Prestatie"@nl ;
+	rdfs:comment "The measurable performance that is required or constraint of the action."@en , "De meetbare prestatie die vereist is of de beperking van de actie."@nl ;
+	sh:property :PerformanceValue ;
+	.
+
+:PerformanceValue rdf:type sh:PropertyShape ;
+	sh:path	rdf:value ;
+	sh:datatype xsd:string ;
+	.
+
+:Property rdf:type rdfs:Class ;
+	rdfs:subClassOf :Performance ;
+	rdfs:label "Property"@en ,"Eigenschap"@nl ;
+	.
+
+:Function rdf:type rdfs:Class ;
+	rdfs:subClassOf :Performance ;
+	rdfs:label "Function"@en,"Functie"@nl ;
+	.
+
+:Activity rdf:type rdfs:Class ;
+	rdfs:subClassOf :Performance ;
+	rdfs:label "Activity"@en, "Activiteit"@en ;
+	.
+	
+:Reference rdf:type rdfs:Class ;
+	rdfs:subClassOf :Performance ;
+	rdfs:label "Reference"@en ,"Verwijzing"@nl ;
+	.
+
+## PROPERTY CONDITIONS
+
+:Conditions rdf:type rdfs:Class ;
+	rdfs:label "Conditions"@en ,"Condities"@nl ;
+	rdfs:comment "The conditions during which the action takes place or to initiate the performance."@en ;
+	sh:property :ConditionValue ;
+	.
+
+:ConditionValue rdf:type sh:PropertyShape ;
+	sh:path	rdf:value ;
+	sh:datatype xsd:string ;
+	.
+
+## PROPERTY SYSTEMS
+
+:Systems rdf:type rdfs:Class ;
+	rdfs:label "Systems"@en ,"Systemen"@nl ;
+	rdfs:comment "The specific system or object that shall deliver the required performance."@en ;
+	sh:property :SystemValue ;
+	.
+
+:SystemValue rdf:type sh:PropertyShape ;
+	sh:path	rdf:value ;
+	sh:datatype xsd:string ;
+	.
+
+## PROPERTY MARGIN
+
+:Margin rdf:type rdfs:Class ;
+	rdfs:label "Error margin"@en ,"Foutmarge"@nl ;
+	rdfs:comment "Tolerance or limitations on the required performance."@en , "Tolerantie of beperkingen op de vereiste prestaties."@nl ;
+	sh:property :MarginValue ;
+	.
+
+:MarginValue rdf:type sh:PropertyShape ;
+	sh:path	rdf:value ;
+	sh:datatype xsd:string ;
+	.
+
+## PROPERTY MAINVERBS
+
+:MainVerbs rdf:type rdfs:Class ;
+	rdfs:label "Main verbs"@en ,"Hoofd werkwoorden"@nl ;
+	rdfs:comment "The action, occurrence, or a state of being."@en , "De actie, gebeurtenis of een staat van zijn."@nl ;
+	sh:property :MainVerbsValue ;
+	.
+
+:MainVerbsValue rdf:type sh:PropertyShape ;
+	sh:path	rdf:value ;
+	sh:datatype xsd:string ;
+	.
+
+## PROPERTY ACTORS
+
+:Actors rdf:type rdfs:Class ;
+	rdfs:label "Actors"@en ,"Acteurs"@nl ;
+	rdfs:comment "For whom or what the service should be provided or the thing acted upon."@en ;
+	sh:property :ActorsValue ;
+	.
+
+:ActorsValue rdf:type sh:PropertyShape ;
+	sh:path	rdf:value ;
+	sh:datatype xsd:string ;
+	.
+
+# FIGURES
+
+doco:Figure a rdfs:Class ;
+    rdfs:label "figure"@en, "figuur"@nl ;
+    rdfs:comment "A visual communication object comprising one or more still images on a related theme.  If included within a publication, a figure is typically unaligned with the main body of text, having its own descriptive textual figure legend."@en, "Een visueel communicatieobject bestaande uit een of meer stilstaande beelden over een verwant thema.  Als een figuur in een publicatie wordt opgenomen, is hij gewoonlijk niet uitgelijnd met de hoofdtekst en heeft hij zijn eigen beschrijvende tekstuele figuurlegende."@nl ;
+    .
+#Overgenomen uit SPAR > DOCO
+
+# FORMULAS
+
+:FormulaShape rdf:type sh:NodeShape ;
+    sh:targetClass doco:Formula ;
+    sh:property :FormulaContent ;
+    .
+
+:FormulaContent rdf:type sh:PropertyShape ;
+    sh:path c4o:hasContent ;
+    sh:xone ([sh:datatype :Latex][sh:datatype :StrictContentMathML][sh:datatype :ContentMathML]) ;
+    .
+
+:Latex rdf:type rdfs:Datatype ;
+	rdfs:subClassOf rdfs:Literal ;
+	rdfs:label "Latex Formula"@en ,"Latex Formule"@nl ;
+	.
+
+:ContentMathML rdf:type rdfs:Datatype ;
+	rdfs:subClassOf rdfs:Literal ;
+	rdfs:label "Content MathML Formula"@en ,"Content MathML Formule"@nl ;
+	.
+
+:StrictContentMathML rdf:type rdfs:Datatype ;
+	rdfs:subClassOf :ContentMathML ;
+	rdfs:label "Strict MathML Formula"@en ,"Strict MathML Formule"@nl ;
+	.
+
+# LISTS
+
+:ListShape rdf:type sh:NodeShape ;
+    sh:targetClass doco:List ;
+    sh:property :ListContent ;
+    .
+
+:ListContent rdf:type sh:PropertyShape ;
+    sh:path c4o:hasContent ;
+    sh:xone ([sh:datatype rdf:HTML][sh:datatype rdf:MARKDOWN]) ;
+    .
+
+# TABLES
+
+:TableShape rdf:type sh:NodeShape ;
+    sh:targetClass doco:Table ;
+    sh:property :TableContent ;
+    .
+
+:TableContent rdf:type sh:PropertyShape ;
+    sh:path c4o:hasContent ;
+    sh:xone ([sh:datatype rdf:HTML][sh:datatype rdf:MARKDOWN]) ;
+    .
+
+# OPERATORS
+
+:andStatement rdf:type sh:PropertyShape ;
+    sh:path :AND ;
+    sh:class :Requirement ;
+    .
+
+:AND rdf:type owl:ObjectProperty ;
+    rdfs:label "intersection of requirements, e.g. 172 and 014 are required"@en ;
+    .
+
+:orStatement rdf:type sh:PropertyShape ;
+    sh:path :OR ;
+    sh:class :Requirement ;
+    .
+
+:OR rdf:type owl:ObjectProperty ;
+    rdfs:label "union of requirements, e.g. A or B is required"@en ;
+    .
+
+:ifthenStatement rdf:type sh:PropertyShape ;
+    sh:path :IFTHEN ;
+    sh:class :Requirement ;
+    .
+
+:IFTHEN rdf:type owl:ObjectProperty ; 
+    rdfs:label "conditional requirement, e.g. if A is applicable then B is required"@en ;
+    .
