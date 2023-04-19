@@ -13,6 +13,7 @@
 <https://specified.ai/ontologies/spec/> rdf:type owl:Ontology ;
     owl:versionInfo "1.0"^^xsd:string ;
     dc:creator "Robert Matousek"^^xsd:string ;
+	dc:contributor "Rik Opgenoort, Redmer Kronemeijer"^^xsd:string ;
     dc:date "2023-03-24" ;
     dc:title "Specifications Ontology"@en ;
     dc:description "The Specifications Ontology provides a structured vocabulary written in OWL 2 DL of technical specifications. This allows technical specifications to be described in RDF."@en ;               
@@ -20,9 +21,10 @@
         """The Specifications Ontology provides a structured vocabulary written in OWL 2 DL of technical specifications. This allows technical specifications to be described in RDF.
         **URL:** https://specified.ai/ontologies/spec/
         **Creators**: Robert Matousek
-        *License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+		**Contributors**: Rik Opgenoort, Redmer Kronemeijer
+        **License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
         **Website:** https://specified.ai
-        **Cite as:** Matousek, R.(2023). The Specifications Ontology. """@en ,
+        **Cite as:** Matousek, R. Opgenoort, R. Kronemeijer, R. (2023). The Specifications Ontology."""@en ,
         "This ontology is available at https://specified.ai/ontologies/spec/, and uses the namespace prefix spec."@en ;
     dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
     owl:imports <http://purl.org/spar/doco/>, <http://www.essepuntato.it/2008/12/pattern#> ;
@@ -133,26 +135,63 @@
 
 :Bindingness rdf:type rdfs:Class ;
 	rdfs:label "Bindingness"@en ,"Bindenheid"@nl ;
-	rdfs:comment "The quality of being binding."@en , "De mate waarin iets vereist is."@nl .
+	rdfs:comment "The quality of being binding."@en, 
+		"Die Qualität des Bindens"@de, 
+		"De mate waarin iets vereist is."@nl ;
+	rdfs:seealso <https://www.rfc-editor.org/rfc/rfc2119>,
+		<https://github.com/Stichting-CROW/respec/wiki/RFC-2119-Nederlands> ;
+	.
 
-:Shall rdf:type :Bindingness ;
-    rdfs:label  "Shall"@en, "Moet"@nl;
-    rdfs:comment "Indicates a requirement."@en , "Geeft een vereiste aan."@nl .			
+:Must rdf:type :Bindingness ;
+    rdfs:label "Must, Required, Shall"@en, 
+		"Muss, Erforderlich, Nötig"@de, 
+		"Moet, Vereist"@nl ;
+    rdfs:comment "An absolute prohibition of the specification."@en, 
+		"Eine absolute Anforderung der Spezifikation."@de, 
+		"Een absolute vereiste van de specificatie."@nl ;
+	.
+
+:MustNot rdf:type :Bindingness ;
+    rdfs:label "Must not, Shall not"@en, 
+		"Darf nicht, Verboten."@de, 
+		"Mag niet, Verboden"@nl ;
+    rdfs:comment "An absolute prohibition of the specification."@en, 
+		"Ein absolutes Verbot der Spezifikation."@de, 
+		"Een absoluut verbod van de specificatie."@nl ;
+	.
+		
 :Should rdf:type :Bindingness ;
-    rdfs:label  "Should"@en, "Zou moeten"@nl;
-    rdfs:comment "Indicates a recommendation."@en , "Geeft een aanbeveling aan."@nl .	
-:May rdf:type :Bindingness ;
-    rdfs:label  "Provisional"@en, "Provisoire"@nl;
-    rdfs:comment "Indicates a permission."@en , "Geeft toestemming aan."@nl .	
-:Can rdf:type :Bindingness ;
-    rdfs:label  "Provisional"@en, "Provisoire"@nl;
-    rdfs:comment "Indicates a possibility or a capability."@en , "Geeft een mogelijkheid aan."@nl ;
+    rdfs:label "Should, Recommended"@en,
+		"Soll, Empfohlen"@de,
+		"Zou moeten, Aanbevolen"@nl ;
+    rdfs:comment "Valid reasons may exist in particular circumstances to ignore a particular item, but the full implications must be understood and carefully weighed before choosing a different course."@en, 
+		"Unter bestimmten Umständen kann es gute Gründe geben diese Spezifikation zu ignorieren. Die Auswirkungen müssen voll und ganz verstanden und sorgfältig abgewägt werden bevor von der Spezifikation abgewichen wird."@de, 
+		"Geven een sterke wens aan, tenzij er een valide reden is om in een specifiek geval af te wijken. De implicaties daarvan moeten zorgvuldig gewogen zijn voordat er afgeweken wordt."@nl ;
+	.
+
+:ShouldNot rdf:type :Bindingness ;
+    rdfs:label "Should not, Not recommended"@en, 
+		"Soll nicht, Nicht empfohlen"@de,
+		"Zou niet moeten"@nl ;
+    rdfs:comment "Valid reasons may exist in particular circumstances when the particular behavior is acceptable or even useful, but the full implications should be understood and the case carefully weighed"@en, 
+		"In speziellen Situationen kann es gute Gründe geben kann, dass dieses Verhalten akzeptabel, ja sogar nützlich sein kann"@de, 
+		"Geven een ongewenste omstandigheid, waarvan volledige implicaties daarvan zorgvuldig gewogen moeten zijn voordat het in een specifiek geval toegestaan is."@nl ;
+	.
+		
+:May rdf:type :Bindingness ;	
+    rdfs:label "May, Optional, Not required"@en, 
+		"Darf, Kann, Nicht nötig, Optional"@de,
+		"Kan, Mogen, Optioneel, Niet vereist"@nl ;
+    rdfs:comment "The item is truly optional."@en, 
+		"Das Verhalten ist wirklich optional."@de, 
+		"Dit onderdeel is daadwerkelijk optioneel."@nl ;
 	.
 
 ## PROPERTY PERFORMANCES
+# Requirements are typically classified into two main categories, namely, functional requirements (FRs) and non-functional requirements (NFRs). Non-functional requirements are further classified into a range of quality requirements, such as ‘security’, ‘availability’, and ‘usability’. The latter classification being less well defined.
 
 :Performance rdf:type rdfs:Class ;
-	rdfs:label "Performance"@en ,"Prestatie"@nl ;
+	rdfs:label "Performance"@en, "Prestatie"@nl ;
 	rdfs:comment "The measurable performance that is required or constraint of the action."@en , "De meetbare prestatie die vereist is of de beperking van de actie."@nl ;
 	sh:property :PerformanceValue ;
 	.
