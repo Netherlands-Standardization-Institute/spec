@@ -13,7 +13,7 @@
 <https://specified.ai/ontologies/spec/> rdf:type owl:Ontology ;
     owl:versionInfo "1.0"^^xsd:string ;
     dc:creator "Robert Matousek"^^xsd:string ;
-	dc:contributor "Rik Opgenoort, Redmer Kronemeijer"^^xsd:string ;
+	dc:contributor "Rik, Redmer Kronemeijer"^^xsd:string ;
     dc:date "2023-03-24" ;
     dc:title "Specifications Ontology"@en ;
     dc:description "The Specifications Ontology provides a structured vocabulary written in OWL 2 DL of technical specifications. This allows technical specifications to be described in RDF."@en ;               
@@ -21,10 +21,10 @@
         """The Specifications Ontology provides a structured vocabulary written in OWL 2 DL of technical specifications. This allows technical specifications to be described in RDF.
         **URL:** https://specified.ai/ontologies/spec/
         **Creators**: Robert Matousek
-		**Contributors**: Rik Opgenoort, Redmer Kronemeijer
+		**Contributors**: Rik, Redmer Kronemeijer
         **License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
         **Website:** https://specified.ai
-        **Cite as:** Matousek, R. Opgenoort, R. Kronemeijer, R. (2023). The Specifications Ontology."""@en ,
+        **Cite as:** Matousek, R. Rik. Kronemeijer, R. (2023). The Specifications Ontology."""@en ,
         "This ontology is available at https://specified.ai/ontologies/spec/, and uses the namespace prefix spec."@en ;
     dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
     owl:imports <http://purl.org/spar/doco/>, <http://www.essepuntato.it/2008/12/pattern#> ;
