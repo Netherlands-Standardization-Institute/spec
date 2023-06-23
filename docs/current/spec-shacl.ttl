@@ -34,10 +34,9 @@
 	.
 
 ### TODO ### 
-#   a clause can refer to another object, e.g. 'see Figure 1'
-#   Can be rdfs:seeAlso? Or dct:references
 # 	Min and Max counts for the SHAPES?
 #	frbr:embodiment als SHAPE
+
 
 
 # REQUIREMENTS / STATEMENT
@@ -45,7 +44,7 @@
 :Statement rdf:type rdfs:Class, sh:NodeShape ;
 	rdfs:label "Clause"@en ,"Clausule"@nl ;
 	rdfs:comment "Human-readable expression of a property. Not all statements have to be expressed in natural language: a statement could be a UML diagram specifying a system property, a mathematical formula describing a constraint property, a PERT diagram or (in agile development) a burndown chart specifying a task property. "@en ;
-	sh:property :StatementText ;
+	sh:property :StatementText, :StatementReference ;
 	.
 
 :Requirement rdf:type rdfs:Class, sh:NodeShape ;
@@ -53,7 +52,7 @@
 	rdfs:label "Requirement"@en ,"Eis"@nl ;
 	rdfs:comment "A requirement is a specification of a property of a project, system or environment"@en ;
 	frbr:embodiment	doco:Sentence ;
-	sh:property :RequirementText, :RequirementContainer, :RequirementBindingness, :RequirementPerformance, :RequirementCondition, :RequirementMainVerb, :RequirementMargin, :RequirementActor, :RequirementTopic, :RequirementCategory ;
+	sh:property :RequirementText, :RequirementContainer, :RequirementBindingness, :RequirementPerformance, :RequirementCondition, :RequirementMainVerb, :RequirementMargin, :RequirementActor, :RequirementTopic, :RequirementCategory, :RequirementReference ;
 	.
 
 ## REQUIREMENTS /STATEMENT SHAPES
@@ -65,6 +64,12 @@
 	sh:maxCount 1 ;
     .
 
+:StatementReference rdf:type sh:PropertyShape ;
+	rdfs:comment "A statement (piece of text) can refer to another piece of text. Either implicit or explicit."@en ;
+	sh:path :refersTo ;
+	sh:class :Statement ;
+	.
+
 :RequirementText rdf:type sh:PropertyShape ;
 	rdfs:comment "The sentence of a requirement is an optional and virtual representation in natural language which can be derived from the resources related to the requirement."@en ;
     sh:path frbr:embodiment ;
@@ -73,7 +78,7 @@
     .
 
 :RequirementStatement rdf:type sh:PropertyShape ;
-    sh:path dc:source ;
+    sh:path :isDerivedFrom ;
     sh:class :Statement ;
     .
 
@@ -119,7 +124,20 @@
 	sh:maxCount 1 ;
 	.
 
+:RequirementReference rdf:type sh:PropertyShape ;
+	sh:path :refersTo ;
+	sh:or ( [ sh:class doco:Figure ] [ sh:class doco:Table ] [ sh:class doco:List ] [ sh:class doco:Formula ] )
+	.
+
 # PROPERTIES
+
+:refersTo rdf:type owl:ObjectProperty ;
+		  rdfs:subPropertyOf dc:references ;
+	.
+
+:isDerivedFrom rdf:type owl:ObjectProperty ;
+		  rdfs:subPropertyOf dc:source ;
+	.
 
 :hasBindingness rdf:type owl:ObjectProperty ;
 	.
@@ -148,7 +166,6 @@
 
 :hasStakeholder rdf:type owl:DataProperty ;
 	.
-
 
 ## PROPERTY BINDINGNESS (MODAL VERB)
 
