@@ -55,7 +55,7 @@ spec-cat:Goal rdf:type spec:Category ;
 
 spec-cat:Obstacle rdf:type spec:Category ;
     rdfs:label "Obstacle"@en, "Obstakel"@nl ;
-    rdfs:comment "Aa goal defined as the need to overcome a negative property of the environment"@en ;
+    rdfs:comment "A goal defined as the need to overcome a negative property of the environment"@en ;
     rdfs:seeAlso spec-cat:Goal ;
 	.
 
