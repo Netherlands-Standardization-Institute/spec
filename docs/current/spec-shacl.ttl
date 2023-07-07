@@ -10,6 +10,7 @@
 @prefix pattern: <http://www.essepuntato.it/2008/12/pattern#> .
 @prefix nen2660: <https://w3id.org/nen2660/def#> .
 @prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix c4o: <http://purl.org/spar/c4o/>.
 @prefix spec-cat: <https://specified.ai/ontologies/spec-category/> .
 
 <https://specified.ai/ontologies/spec/> rdf:type owl:Ontology ;
