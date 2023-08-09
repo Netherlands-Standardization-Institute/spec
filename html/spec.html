@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Specifications Ontology</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <style>
+	/*
+        #pylode {
+            position: fixed;
+            top: 130px;
+            left: -60px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
+	*/
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
+
+        dt {
+            font-weight: bold;
+            padding: 5px 0 5px 0;
+        }
+
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
+
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
+
+
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
+
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
+
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
+
+        .entity table th {
+            text-align: left;
+        }
+
+        section#overview img {
+            max-width: 1000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 3px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
+
+
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: justify;
+        }
+
+        section {
+            max-width: 1500px;
+        }
+
+        .figure {
+            margin-bottom: 20px;
+        }
+
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
+
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-cp,
+        .sup-cl {
+            cursor:help;
+            margin-left: 3px;
+        }
+
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-cp {
+            color:orange;
+        }
+
+        .sup-cl {
+            color:darkred;
+        }
+
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
+		/* custom css */
+		div.head {
+			margin-bottom: 1em;
+		}
+    </style>
+    
+    <script type="application/ld+json">
+      [
+  {
+    "@id": "https://specified.ai/ontologies/spec/",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/description": [
+      {
+        "@value": "<p>The Specifications Ontology provides a structured vocabulary of technical specifications. This allows technical specifications to be described in RDF.\n        <strong>URL:</strong> https://specified.ai/ontologies/spec/\n        <strong>Creators</strong>: Robert Matousek\n        <strong>Contributors</strong>: Rik, Redmer Kronemeijer\n        <strong>License:</strong> <a href=\"https://creativecommons.org/licenses/by/4.0/legalcode\">Creative Commons Attribution 4.0 International</a>\n        <strong>Website:</strong> https://specified.ai\n        <strong>Cite as:</strong> Matousek, R. Kronemeijer, R. Rik. (2023). The Specifications Ontology.</p>"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "Specifications Ontology"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body>
+  <!--
+  <div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">
+    <span style="color:#329545;">p</span><span style="color:#f9cb33;">y</span>LODE</a>
+    <span style="font-size:smaller;">2.8.3</span>
+  </div>
+  -->
+<div id="div-hd" class="head">
+<a href="http://www.w3.org/"><img height="72" width="72" alt="SPEC ontology" src="img/logo-spec.png"/></a> 
+</div>
+  <h1>Specifications Ontology</h1>
+<h3><em>An ontology for requirements engineering</em></h3>
+  <section id="conceptscheme">
+      <h2 style="display:none;">Concept Scheme</h2>
+      <dl>
+          <dt>URI</dt>
+          <dd><code>https://specified.ai/ontologies/spec/</code></dd>
+            <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
+          <dd>
+              Robert Matousek, Rik Opgenoort, Redmer Kronemeijer, Herman Drenth, Jos Hebing<br/>
+          </dd>
+          <dt>Date</dt>
+          <dd>23 August 2023</dd>		  
+		  <!--
+          <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor">Contributor</a>(s)</dt>
+          <dd>None</dd>
+		  -->
+          <dt>Current version</dt>
+          <dd>1.0</dd>
+		  <!--
+          <dt>Version URI</dt>
+          <dd><a href="https://specified.ai/ontologies/spec/1.0">1.0</a></dd>
+		  -->
+          <dt>Source</dt>
+          <dd><a href="https://specfied.ai/spec/">RDF (turtle)</a></dd>
+          <dt>License</dt>
+          <dd><a href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International</a></dd>		  
+      </dl>
+      <h2>Abstract</h2>
+      <div id="description">
+          <p>
+		  The Specifications Ontology is a formal and structured representation of knowledge that defines concepts, relationships, and properties of requirements. 
+		  It serves as a shared vocabulary or framework for describing and organizing requirements in a way that computers can understand and process, also known as machine-readable requirements.
+		  </p>
+      </div>
+  </section>
+  <section id="toc">
+      <h2>Table of Contents</h2>
+      <ol>
+          <li><a href="#concepts">Concepts</a></li>
+          <li><a href="#namespaces">Namespaces</a></li>
+          <li><a href="#legend">Legend</a></li>
+      </ol>
+  </section>
+  <section id="overview">
+      <h2>Overview</h2>
+      <div class="figure">
+          <div><img src="img/model.drawio.png" /></div>
+          <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+      </div>
+  </section>
+  <section id="concepts">
+    <h2>Concepts <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hierarchy">
+		<!--<li><a href="http://purl.org/spar/doco/Figure">doco:Figure</a></li>-->
+		<li><a href="#Actor">Actor</a></li>
+		<li><a href="#Bindingness">Bindingness</a>
+			<ul><li><a href="#Must">Must</a></li></ul>
+			<ul><li><a href="#MustNot">MustNot</a></li></ul>
+			<ul><li><a href="#Should">Should</a></li></ul>
+			<ul><li><a href="#ShouldNot">ShouldNot</a></li></ul>
+			<ul><li><a href="#May">May</a></li></ul>					
+		</li>
+		<li><a href="#Category">Category</a></li>
+		<li><a href="#Condition">Condition</a></li>
+		<li><a href="#MainVerb">MainVerb</a></li>
+		<li><a href="#Margin">Margin</a></li>
+		<li>
+			<a href="#Performance">Performance</a>
+			<ul><li><a href="#Activity">Activity</a></li></ul>
+			<ul><li><a href="#Function">Function</a></li></ul>
+			<ul><li><a href="#Property">Property</a></li></ul>
+			<ul><li><a href="#Reference">Reference</a></li></ul>
+		</li>
+		<li><a href="#Requirement">Requirement</a></li>
+		<li><a href="#Stakeholder">Stakeholder</a></li>
+		<li><a href="#Statement">Statement</a></li>
+		<li>
+			<a href="#Topic">Topic</a>
+			<ul><li><a href="#Environment">Environment</a></li></ul>
+			<ul><li><a href="#Project">Project</a></li></ul>
+			<ul><li><a href="#System">System</a></li></ul>
+		</li>
+	</ul>
+	<!--
+    <div class="entity concept" id="figure">
+        <h3>figure<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              figuur (nl)
+              , 
+              figure (en)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/spar/doco/Figure</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    Een visueel communicatieobject bestaande uit een of meer stilstaande beelden over een verwant thema.  Als een figuur in een publicatie wordt opgenomen, is hij gewoonlijk niet uitgelijnd met de hoofdtekst en heeft hij zijn eigen beschrijvende tekstuele figuurlegende.<br/>
+                    A visual communication object comprising one or more still images on a related theme.  If included within a publication, a figure is typically unaligned with the main body of text, having its own descriptive textual figure legend.<br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+	-->
+    <div class="entity concept" id="Activity">
+        <h3>Activiteit<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Activity (en)
+              , 
+              Activiteit (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Activity</code></td>
+            </tr>
+            <tr>
+                <th>Broader Concepts</th>
+                <td>
+                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Actor">
+        <h3>Actor<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Actor (en)
+              , 
+              Acteur (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Actor</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    For whom or what the service should be provided or the thing acted upon.<br/><br/>
+					Voor wie of wat de dienst moet worden geleverd of het ding waarop moet worden gehandeld.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Bindingness">
+        <h3>Bindingness<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Bindingness (en)
+              , 
+              Bindenheid (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Bindingness</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The quality of being binding.<br/><br/>
+                    De mate waarin iets vereist is.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Category">
+        <h3>Category<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Category (en)
+              , 
+              Categorie (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Category</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The category a requirement belongs to.<br/><br/>
+                    De categorie waartoe een eis behoort.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Condition">
+        <h3>Condition<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Condition (en)
+              , 
+              Conditie (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Condition</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The conditions during which the action takes place or to initiate the performance.<br/><br/>
+					De omstandigheden waarin de actie plaatsvindt of om de uitvoering te initiëren.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Environment">
+        <h3>Environment<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Environment (en)
+              , 
+              Omgeving (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Environment</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    An environment for a project or system is the set of entities (people, organizations, regulations, devices and other material objects, other systems) external to the project or system but with the potential to affect it or be affected by it.<br/><br/>
+					Een omgeving voor een project of systeem is het geheel van entiteiten (mensen, organisaties, voorschriften, apparaten en andere materiële objecten, andere systemen) buiten het project of systeem, maar met het potentieel om het te beïnvloeden of erdoor beïnvloed te worden.
+                </td>
+            </tr>
+            <tr>
+                <th>Broader Concepts</th>
+                <td>
+                    <a href="#Topic">Topic</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Function">
+        <h3>Function<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Function (en)
+              , 
+              Functie (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Function</code></td>
+            </tr>
+            <tr>
+                <th>Broader Concepts</th>
+                <td>
+                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="MainVerb">
+        <h3>Main verb<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Main verb (en)
+              , 
+              Hoofd werkwoord (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/MainVerb</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The action, occurrence, or a state of being.<br/><br/>
+                    De actie, gebeurtenis of een staat van zijn.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Errormargin">
+        <h3>Error margin<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Error margin (en)
+              , 
+              Foutmarge (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Margin</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    Tolerantie of beperkingen op de vereiste prestaties.<br/><br/>
+                    Tolerance or limitations on the required performance.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Performance">
+        <h3>Performance<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Performance (en)
+              , 
+              Prestatie (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Performance</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The measurable performance that is required or constraint of the action.<br/><br/>
+                    De meetbare prestatie die vereist is of de beperking van de actie.
+                </td>
+            </tr>
+            <tr>
+                <th>Narrower Concepts</th>
+                <td>
+                    <a href="#Function">Function</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#Reference">Reference</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#Property">Property</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#Activity">Activity</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Project">
+        <h3>Project<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Project (en)
+              , 
+              Project (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Project</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A project is the set of human processes involved in the planning, construction, revision and operation of a system.<br/><br/>
+					Een project is het geheel van menselijke processen die betrokken zijn bij de planning, constructie, herziening en werking van een systeem.
+                </td>
+            </tr>
+            <tr>
+                <th>Broader Concepts</th>
+                <td>
+                    <a href="#Topic">Topic</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Property">
+        <h3>Property<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Property (en)
+              , 
+              Eigenschap (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Property</code></td>
+            </tr>
+            <tr>
+                <th>Broader Concepts</th>
+                <td>
+                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Reference">
+        <h3>Reference<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Reference (en)
+              , 
+              Verwijzing (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Reference</code></td>
+            </tr>
+            <tr>
+                <th>Broader Concepts</th>
+                <td>
+                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Requirement">
+        <h3>Requirement<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Requirement (en)
+              , 
+              Eis (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Requirement</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A requirement is a specification of a property of a project, system or environment.<br/><br/>
+					Een eis is een specificatie van een eigenschap van een project, systeem of omgeving.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Stakeholder">
+        <h3>Stakeholder<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Stakeholder (en)
+              , 
+              Stakeholder (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Stakeholder</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A stakeholder for a project is an (internal) entity who may affect or be affected by the project or its associated system.<br/><br/>
+					Een belanghebbende voor een project is een (interne) entiteit die invloed kan hebben op of kan worden beïnvloed door het project of het bijbehorende systeem.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Clause">
+        <h3>Statement<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Clause (en)
+              , 
+              Clausule (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Statement</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    Human-readable expression of a property. Not all statements have to be expressed in natural language: a statement could be a UML diagram specifying a system property, a mathematical formula describing a constraint property. <br/><br/>
+					Voor mensen leesbare expressie van een eigenschap. Niet alle statements hoeven in natuurlijke taal te worden uitgedrukt: een statement kan een UML-diagram zijn dat een systeemeigenschap specificeert, een wiskundige formule die een beperkingseigenschap beschrijft.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="System">
+        <h3>System<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              System (en)
+              , 
+              Systeem (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/System</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The specific system (set of related artifacts) or object that shall deliver the required performance.<br/><br/>
+					Het specifieke systeem (set gerelateerde artefacten) of object dat de vereiste prestatie moet leveren.
+                </td>
+            </tr>
+            <tr>
+                <th>Broader Concepts</th>
+                <td>
+                    <a href="#Topic">Topic</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Topic">
+        <h3>Topic<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Subject (en)
+              , 
+              Onderwerp (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Topic</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The subject of the requirement.<br/><br/>
+					Het onderwerp van de eis.
+                </td>
+            </tr>
+            <tr>
+                <th>Narrower Concepts</th>
+                <td>
+                    <a href="#System">System</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#Project">Project</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#Environment">Environment</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+	
+	
+    <div class="entity concept" id="Must">
+        <h3>Must<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Must, Required, Shall (en)
+              , 
+              Moet, Vereist (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Must</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    An absolute requirement of the specification.<br/><br/>
+					Een absolute vereiste van de specificatie.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="MustNot">
+        <h3>MustNot<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Must not, Shall not (en)
+              , 
+              Mag niet, Verboden (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Must</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    An absolute prohibition of the specification.<br/><br/>
+					Een absoluut verbod van de specificatie.
+                </td>
+            </tr>
+        </table>
+    </div>	
+    <div class="entity concept" id="Should">
+        <h3>Should<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Should, Recommended (en)
+              , 
+              Zou moeten, Aanbevolen (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Should</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    Valid reasons may exist in particular circumstances to ignore a particular item, but the full implications must be understood and carefully weighed before choosing a different course.<br/><br/>
+					Geven een sterke wens aan, tenzij er een valide reden is om in een specifiek geval af te wijken. De implicaties daarvan moeten zorgvuldig gewogen zijn voordat er afgeweken wordt.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="ShouldNot">
+        <h3>ShouldNot<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Should not, Not recommended (en)
+              , 
+              Zou niet moeten (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/Should</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    Valid reasons may exist in particular circumstances when the particular behavior is acceptable or even useful, but the full implications should be understood and the case carefully weighed.<br/><br/>
+					Geven een ongewenste omstandigheid, waarvan volledige implicaties daarvan zorgvuldig gewogen moeten zijn voordat het in een specifiek geval toegestaan is.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Should">
+        <h3>May<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              Should, Recommended (en)
+              , 
+              Zou moeten, Aanbevolen (nl)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://specified.ai/ontologies/spec/May</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The item is truly optional.<br/><br/>
+					Dit onderdeel is daadwerkelijk optioneel.
+                </td>
+            </tr>
+        </table>
+    </div>	
+</section>
+
+  <section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt>:</dt>
+        <dd><code>https://specified.ai/ontologies/spec/</code></dd>
+        <dt>c4o</dt>
+        <dd><code>http://purl.org/spar/c4o/</code></dd>
+        <dt>dc</dt>
+        <dd><code>http://purl.org/dc/elements/1.1/</code></dd>
+        <dt>doco</dt>
+        <dd><code>http://purl.org/spar/doco/</code></dd>
+        <dt>frbr</dt>
+        <dd><code>http://purl.org/vocab/frbr/core#</code></dd>
+        <dt>nen2660</dt>
+        <dd><code>https://w3id.org/nen2660/def#</code></dd>
+        <dt>owl</dt>
+        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+        <dt>pattern</dt>
+        <dd><code>http://www.essepuntato.it/2008/12/pattern#</code></dd>
+        <dt>rdf</dt>
+        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        <dt>rdfs</dt>
+        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>sdo</dt>
+        <dd><code>https://schema.org/</code></dd>
+        <dt>sh</dt>
+        <dd><code>http://www.w3.org/ns/shacl#</code></dd>
+        <dt>skos</dt>
+        <dd><code>http://www.w3.org/2008/05/skos#</code></dd>
+        <dt>spec-cat</dt>
+        <dd><code>https://specified.ai/ontologies/spec-category/</code></dd>
+        <dt>xsd</dt>
+        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+    </dl>
+</section>
+
+  <section id="legend">
+    <h2>Legend</h2>
+    <table class="entity">
+      <tr><td><sup class="sup-cl" title="Collections">cl</sup></td><td>Collections</td></tr>
+      <tr><td><sup class="sup-cp" title="Concepts">cp</sup></td><td>Concepts</td></tr>
+    </table>
+  </section>
+</body>
+</html>
