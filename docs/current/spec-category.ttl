@@ -1,20 +1,20 @@
-@prefix spec: <https://specified.ai/ontologies/spec/> .
-@prefix spec-cat: <https://specified.ai/ontologies/spec-category/> .
+@prefix : <http://purl.org/nen/spec-cat> .
+@prefix spec: <http://purl.org/nen/spec> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2008/05/skos#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix doco: <http://purl.org/spar/doco/> .
-@prefix pattern: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix po: <http://purl.org/spar/po> .
 @prefix nen2660: <https://w3id.org/nen2660/def#> .
 @prefix frbr: <http://purl.org/vocab/frbr/core#> .
 
 #TODO: Uitwerken in volledige SKOS
 
-<https://specified.ai/ontologies/spec-cat/> rdf:type owl:Ontology ;
+: rdf:type owl:Ontology ;
     owl:versionInfo "1.0"^^xsd:string ;
     dc:creator "Robert Matousek"^^xsd:string ;
 	dc:contributor <https://rdmr.eu/>, <https://rix.fyi/> ;
@@ -33,128 +33,128 @@
         "This ontology is available at https://specified.ai/ontologies/spec-cat/, and uses the namespace prefix spec-cat."@en ;
     dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
     rdfs:seealso <https://smart-researchteam.github.io/publication/dblp-conftools-0001-begn-19/>, <https://link.springer.com/chapter/10.1007/978-3-030-29852-4_2>;
-    owl:imports <https://specified.ai/ontologies/spec/> ;
-	owl:versionIRI <https://specified.ai/ontologies/spec-cat/1.0> ;
+    owl:imports <http://purl.org/nen/spec/> ;
+#	owl:versionIRI <https://specified.ai/ontologies/spec-cat/1.0> ;
 	.
 
-spec-cat:Component rdf:type spec:Category ;
+:Component rdf:type spec:Category ;
     rdfs:label "Component"@en, "Component"@nl ;
     rdfs:comment "The property that the system, project or environment includes a certain part."@en ;
 	.
 
-spec-cat:Actor rdf:type spec:Category ;
+:Actor rdf:type spec:Category ;
     rdfs:label "Actor"@en, "Actor"@nl ;
     rdfs:comment "A human component."@en ;
-    rdfs:seeAlso spec-cat:Component ;
+    rdfs:seeAlso :Component ;
 	.
 
-spec-cat:Goal rdf:type spec:Category ;
+:Goal rdf:type spec:Category ;
     rdfs:label "Goal"@en, "Doel"@nl ;
     rdfs:comment "An objective of the project or system, in terms of their desired effect on the environment."@en ;
 	.
 
-spec-cat:Obstacle rdf:type spec:Category ;
+:Obstacle rdf:type spec:Category ;
     rdfs:label "Obstacle"@en, "Obstakel"@nl ;
     rdfs:comment "A goal defined as the need to overcome a negative property of the environment"@en ;
-    rdfs:seeAlso spec-cat:Goal ;
+    rdfs:seeAlso :Goal ;
 	.
 
-spec-cat:Behavior rdf:type spec:Category ;
+:Behavior rdf:type spec:Category ;
     rdfs:label "Behavior"@en, "Gedrag"@nl ;
     rdfs:comment "A property of the results or effects of the operation of the system or some of its components."@en ;
 	.
 
-spec-cat:FunctionalBehavior rdf:type spec:Category ;
+:FunctionalBehavior rdf:type spec:Category ;
     rdfs:label "Functional behavior"@en, "Functioneel gedrag"@nl ;
     rdfs:comment "Specifies results or effects of the system."@en ;
-    rdfs:seeAlso spec-cat:Behavior ;
+    rdfs:seeAlso :Behavior ;
 	.
 
-spec-cat:NonFunctionalBehavior rdf:type spec:Category ;
+:NonFunctionalBehavior rdf:type spec:Category ;
     rdfs:label "Non-functional behavior"@en, "Niet-functioneel gedrag"@nl ;
     rdfs:comment "Specifies a property of how results or effects are to be achieved"@en ;
-    rdfs:seeAlso spec-cat:Behavior ;
+    rdfs:seeAlso :Behavior ;
 	.
 
-spec-cat:Task rdf:type spec:Category ;
+:Task rdf:type spec:Category ;
     rdfs:label "Task"@en, "Taak"@nl ;
     rdfs:comment "The property that the project includes a certain activity."@en ;
 	.
 
-spec-cat:Product rdf:type spec:Category ;
+:Product rdf:type spec:Category ;
     rdfs:label "Product"@en, "Product"@nl ;
     rdfs:comment "The property that a task uses or produces a material or virtual object"@en ;
 	.
 
-spec-cat:Constraint rdf:type spec:Category ;
+:Constraint rdf:type spec:Category ;
     rdfs:label "Constraint"@en, "Beperking"@nl ;
     rdfs:comment "An environment property that may affect components, goals, behaviors, tasks or products."@en ;
 	.
 
-spec-cat:BusinessRule rdf:type spec:Category ;
+:BusinessRule rdf:type spec:Category ;
     rdfs:label "Business rule"@en, "Business rule"@nl ;
     rdfs:comment "A constraint resulting from organizational practices."@en ;
-    rdfs:seeAlso spec-cat:Constraint ;
+    rdfs:seeAlso :Constraint ;
 	.
 
-spec-cat:PhysicalRule rdf:type spec:Category ;
+:PhysicalRule rdf:type spec:Category ;
     rdfs:label "Physical rule"@en, "Fysieke beperking"@nl ;
     rdfs:comment "A constraint resulting from laws of nature."@en ;
-    rdfs:seeAlso spec-cat:Constraint ;
+    rdfs:seeAlso :Constraint ;
 	.
 
-spec-cat:EngineeringDecision rdf:type spec:Category ;
+:EngineeringDecision rdf:type spec:Category ;
     rdfs:label "Engineering decision"@en, "Engineering besluit"@nl ;
     rdfs:comment "A constraint resulting from human choices."@en ;
-    rdfs:seeAlso spec-cat:Constraint ;
+    rdfs:seeAlso :Constraint ;
 	.
 
-spec-cat:Obligation rdf:type spec:Category ;
+:Obligation rdf:type spec:Category ;
     rdfs:label "Obligation"@en, "Verplichting"@nl ;
     rdfs:comment "Imposed constraint: A property that the environment is known to possess."@en ;
-    rdfs:seeAlso spec-cat:Constraint ;
+    rdfs:seeAlso :Constraint ;
 	.
 
-spec-cat:Assumption rdf:type spec:Category ;
+:Assumption rdf:type spec:Category ;
     rdfs:label "Assumption"@en, "Veronderstelling"@nl ;
     rdfs:comment "Assumend constraint: A property that the environment may or may not possess but which the project may assume to hold for the development of the system."@en ;
-    rdfs:seeAlso spec-cat:Constraint ;
+    rdfs:seeAlso :Constraint ;
 	.
 
-spec-cat:Invariant rdf:type spec:Category ;
+:Invariant rdf:type spec:Category ;
     rdfs:label "Invariant"@en, "Invariant"@nl ;
     rdfs:comment "A property that is both as an assumption and as a behavior"@en ;
-    rdfs:seeAlso spec-cat:Constraint ;
+    rdfs:seeAlso :Constraint ;
 	.
 
-spec-cat:Role rdf:type spec:Category ;
+:Role rdf:type spec:Category ;
     rdfs:label "Role"@en, "Rol"@nl ;
     rdfs:comment "The property that a component carries some or all of the responsibility for a behavior or task."@en ;
 	.
 
-spec-cat:Responsibility rdf:type spec:Category ;
+:Responsibility rdf:type spec:Category ;
     rdfs:label "Responsibility"@en, "Verantwoordelijkheid"@nl ;
     rdfs:comment "A human role"@en ;
-    rdfs:seeAlso spec-cat:Role ;
+    rdfs:seeAlso :Role ;
 	.
 
-spec-cat:Limit rdf:type spec:Category ;
+:Limit rdf:type spec:Category ;
     rdfs:label "Limit"@en, "Limiet"@nl ;
     rdfs:comment "The property that the project, system or environment does not include (beyond of scope) a requirement of one of the preceding kinds."@en ;
 	.
 
-spec-cat:Lack rdf:type spec:Category ;
+:Lack rdf:type spec:Category ;
     rdfs:label "Lack"@en, "Gebrek"@nl ;
     rdfs:comment "A property that should have a requirement, but does not."@en ;
 	.
 
-spec-cat:Meta-requirement rdf:type spec:Category ;
+:Meta-requirement rdf:type spec:Category ;
     rdfs:label "Meta-requirement"@en, "Meta-specificatie"@nl ;
     rdfs:comment "A property of requirements themselves (not the system, project or environment)."@en ;
 	.
 
-spec-cat:Justification rdf:type spec:Category ;
+:Justification rdf:type spec:Category ;
     rdfs:label "Justification"@en, "Motivering"@nl ;
     rdfs:comment "A meta-requirement explaining the rationale for a requirement (of any kind) in terms of a goal."@en ;
-    rdfs:seeAlso spec-cat:Meta-requirement ;
+    rdfs:seeAlso :Meta-requirement ;
 	.

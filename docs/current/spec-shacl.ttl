@@ -1,19 +1,19 @@
-@prefix : <https://specified.ai/ontologies/spec/> .
+@prefix : <http://purl.org/nen/spec> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2008/05/skos#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix doco: <http://purl.org/spar/doco/> .
-@prefix pattern: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix po: <http://purl.org/spar/po> .
 @prefix nen2660: <https://w3id.org/nen2660/def#> .
 @prefix frbr: <http://purl.org/vocab/frbr/core#> .
 @prefix c4o: <http://purl.org/spar/c4o/>.
-@prefix spec-cat: <https://specified.ai/ontologies/spec-category/> .
+@prefix spec-cat: <http://purl.org/nen/spec-cat> .
 
-<https://specified.ai/ontologies/spec/> rdf:type owl:Ontology ;
+: rdf:type owl:Ontology ;
     owl:versionInfo "1.0"^^xsd:string ;
     dc:creator "Robert Matousek"^^xsd:string ;
 	dc:contributor <https://rdmr.eu/>, <https://rix.fyi/> ;
@@ -22,15 +22,15 @@
     dc:description "The Specifications Ontology is a formal and structured representation of knowledge that defines concepts, relationships, and properties of requirements. It serves as a shared vocabulary or framework for describing and organizing requirements in a way that computers can understand and process, also known as machine-readable requirements."@en ;               
     rdfs:comment 
         """The Specifications Ontology is a formal and structured representation of knowledge that defines concepts, relationships, and properties of requirements. It serves as a shared vocabulary or framework for describing and organizing requirements in a way that computers can understand and process, also known as machine-readable requirements.
-        **URL:** https://specified.ai/ontologies/spec/
+        **URL:** http://purl.org/nen/spec
         **Creators**: Robert Matousek, Rik Opgenoort, Redmer Kronemeijer, Herman Drenth, Jos Hebing
         **License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
         **Website:** https://specified.ai
         **Cite as:** Matousek, R. Kronemeijer, Opgenoort, R. Hebing, J. Drenth, H. (2023). The Specifications Ontology."""@en ,
-        "This ontology is available at https://specified.ai/ontologies/spec/, and uses the namespace prefix spec."@en ;
+        "This ontology is available at http://purl.org/nen/spec/, and uses the namespace prefix spec."@en ;
     dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
-    owl:imports <http://purl.org/spar/doco/>, <http://www.essepuntato.it/2008/12/pattern#>, <http://purl.org/vocab/frbr/core#> ; 
-	owl:versionIRI <https://specified.ai/ontologies/spec/1.0> ;
+    owl:imports <http://purl.org/spar/doco/>, <http://purl.org/spar/po>, <http://purl.org/vocab/frbr/core#> ; 
+#	owl:versionIRI <https://specified.ai/ontologies/spec/1.0> ;
 	.
 
 ### TODO ### 

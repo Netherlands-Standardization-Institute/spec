@@ -194,13 +194,13 @@
     <script type="application/ld+json">
       [
   {
-    "@id": "https://specified.ai/ontologies/spec/",
+    "@id": "http://purl.org/nen/spec",
     "@type": [
       "https://schema.org/DefinedTermSet"
     ],
     "https://schema.org/description": [
       {
-        "@value": "<p>The Specifications Ontology provides a structured vocabulary of technical specifications. This allows technical specifications to be described in RDF.\n        <strong>URL:</strong> https://specified.ai/ontologies/spec/\n        <strong>Creators</strong>: Robert Matousek\n        <strong>Contributors</strong>: Rik, Redmer Kronemeijer\n        <strong>License:</strong> <a href=\"https://creativecommons.org/licenses/by/4.0/legalcode\">Creative Commons Attribution 4.0 International</a>\n        <strong>Website:</strong> https://specified.ai\n        <strong>Cite as:</strong> Matousek, R. Kronemeijer, R. Rik. (2023). The Specifications Ontology.</p>"
+        "@value": "<p>The Specifications Ontology provides a structured vocabulary of technical specifications. This allows technical specifications to be described in RDF.\n        <strong>URL:</strong> http://purl.org/nen/spec/\n        <strong>Creators</strong>: Robert Matousek\n        <strong>Contributors</strong>: Rik, Redmer Kronemeijer\n        <strong>License:</strong> <a href=\"https://creativecommons.org/licenses/by/4.0/legalcode\">Creative Commons Attribution 4.0 International</a>\n        <strong>Website:</strong> https://specified.ai\n        <strong>Cite as:</strong> Matousek, R. Kronemeijer, R. Rik. (2023). The Specifications Ontology.</p>"
       }
     ],
     "https://schema.org/name": [
@@ -222,13 +222,13 @@
 <div id="div-hd" class="head">
 <a href="http://www.w3.org/"><img height="72" width="72" alt="SPEC ontology" src="img/logo-spec.png"/></a> 
 </div>
-  <h1>Specifications Ontology</h1>
+  <h1>The Specifications Ontology</h1>
 <h3><em>An ontology for requirements engineering</em></h3>
   <section id="conceptscheme">
       <h2 style="display:none;">Concept Scheme</h2>
       <dl>
           <dt>URI</dt>
-          <dd><code>https://specified.ai/ontologies/spec/</code></dd>
+          <dd><code>http://purl.org/nen/spec</code></dd>
             <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
           <dd>
               Robert Matousek, Rik Opgenoort, Redmer Kronemeijer, Herman Drenth, Jos Hebing<br/>
@@ -246,7 +246,7 @@
           <dd><a href="https://specified.ai/ontologies/spec/1.0">1.0</a></dd>
 		  -->
           <dt>Source</dt>
-          <dd><a href="https://specfied.ai/spec/">RDF (turtle)</a></dd>
+          <dd><a href="http://purl.org/nen/spec">RDF (XML)</a></dd>
           <dt>License</dt>
           <dd><a href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International</a></dd>		  
       </dl>
@@ -261,11 +261,20 @@
   <section id="toc">
       <h2>Table of Contents</h2>
       <ol>
-          <li><a href="#concepts">Concepts</a></li>
+		  <li><a href="#intro">Introduction</a></li>	  
+		  <li><a href="#overview">Overview</a></li>
+          <li><a href="#concepts">Classes</a></li>
           <li><a href="#namespaces">Namespaces</a></li>
           <li><a href="#legend">Legend</a></li>
+		  <li><a href="#references">References</a></li>
       </ol>
   </section>
+	<section id="intro">
+		<h2>Introduction</h2>
+		<div>
+			<p>The SPEC ontology aims to extend the Semantic Publishing and Referencing Ontologies (SPAR) to enable all aspects of the standards development process to be described in machine-readable metadata statements, encoded using RDF. </p>
+		</div>
+	</section>
   <section id="overview">
       <h2>Overview</h2>
       <div class="figure">
@@ -274,7 +283,7 @@
       </div>
   </section>
   <section id="concepts">
-    <h2>Concepts <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hierarchy">
 		<!--<li><a href="http://purl.org/spar/doco/Figure">doco:Figure</a></li>-->
 		<li><a href="#Actor">Actor</a></li>
@@ -331,7 +340,7 @@
     </div>
 	-->
     <div class="entity concept" id="Activity">
-        <h3>Activiteit<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Activiteit<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Activity (en)
               , 
@@ -341,18 +350,18 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Activity</code></td>
+                <td><code>http://purl.org/nen/spec/Activity</code></td>
             </tr>
             <tr>
-                <th>Broader Concepts</th>
+                <th>Parent class</th>
                 <td>
-                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
     <div class="entity concept" id="Actor">
-        <h3>Actor<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Actor<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Actor (en)
               , 
@@ -362,7 +371,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Actor</code></td>
+                <td><code>http://purl.org/nen/spec/Actor</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -374,7 +383,7 @@
         </table>
     </div>
     <div class="entity concept" id="Bindingness">
-        <h3>Bindingness<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Bindingness<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Bindingness (en)
               , 
@@ -384,7 +393,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Bindingness</code></td>
+                <td><code>http://purl.org/nen/spec/Bindingness</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -396,7 +405,7 @@
         </table>
     </div>
     <div class="entity concept" id="Category">
-        <h3>Category<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Category<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Category (en)
               , 
@@ -406,7 +415,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Category</code></td>
+                <td><code>http://purl.org/nen/spec/Category</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -418,7 +427,7 @@
         </table>
     </div>
     <div class="entity concept" id="Condition">
-        <h3>Condition<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Condition<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Condition (en)
               , 
@@ -428,7 +437,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Condition</code></td>
+                <td><code>http://purl.org/nen/spec/Condition</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -440,7 +449,7 @@
         </table>
     </div>
     <div class="entity concept" id="Environment">
-        <h3>Environment<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Environment<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Environment (en)
               , 
@@ -450,7 +459,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Environment</code></td>
+                <td><code>http://purl.org/nen/spec/Environment</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -460,15 +469,15 @@
                 </td>
             </tr>
             <tr>
-                <th>Broader Concepts</th>
+                <th>Parent class</th>
                 <td>
-                    <a href="#Topic">Topic</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#Topic">Topic</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
     <div class="entity concept" id="Function">
-        <h3>Function<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Function<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Function (en)
               , 
@@ -478,18 +487,18 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Function</code></td>
+                <td><code>http://purl.org/nen/spec/Function</code></td>
             </tr>
             <tr>
-                <th>Broader Concepts</th>
+                <th>Parent class</th>
                 <td>
-                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
     <div class="entity concept" id="MainVerb">
-        <h3>Main verb<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Main verb<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Main verb (en)
               , 
@@ -499,7 +508,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/MainVerb</code></td>
+                <td><code>http://purl.org/nen/spec/MainVerb</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -511,7 +520,7 @@
         </table>
     </div>
     <div class="entity concept" id="Errormargin">
-        <h3>Error margin<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Error margin<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Error margin (en)
               , 
@@ -521,7 +530,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Margin</code></td>
+                <td><code>http://purl.org/nen/spec/Margin</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -533,7 +542,7 @@
         </table>
     </div>
     <div class="entity concept" id="Performance">
-        <h3>Performance<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Performance<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Performance (en)
               , 
@@ -543,7 +552,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Performance</code></td>
+                <td><code>http://purl.org/nen/spec/Performance</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -553,18 +562,18 @@
                 </td>
             </tr>
             <tr>
-                <th>Narrower Concepts</th>
+                <th>Subclasses</th>
                 <td>
-                    <a href="#Function">Function</a><sup class="sup-cp" title="concept">cp</sup><br/>
-                    <a href="#Reference">Reference</a><sup class="sup-cp" title="concept">cp</sup><br/>
-                    <a href="#Property">Property</a><sup class="sup-cp" title="concept">cp</sup><br/>
-                    <a href="#Activity">Activity</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#Function">Function</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Reference">Reference</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Property">Property</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Activity">Activity</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
     <div class="entity concept" id="Project">
-        <h3>Project<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Project<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Project (en)
               , 
@@ -574,7 +583,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Project</code></td>
+                <td><code>http://purl.org/nen/spec/Project</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -584,15 +593,15 @@
                 </td>
             </tr>
             <tr>
-                <th>Broader Concepts</th>
+                <th>Parent class</th>
                 <td>
-                    <a href="#Topic">Topic</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#Topic">Topic</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
     <div class="entity concept" id="Property">
-        <h3>Property<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Property<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Property (en)
               , 
@@ -602,18 +611,18 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Property</code></td>
+                <td><code>http://purl.org/nen/spec/Property</code></td>
             </tr>
             <tr>
-                <th>Broader Concepts</th>
+                <th>Parent class</th>
                 <td>
-                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
     <div class="entity concept" id="Reference">
-        <h3>Reference<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Reference<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Reference (en)
               , 
@@ -623,18 +632,18 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Reference</code></td>
+                <td><code>http://purl.org/nen/spec/Reference</code></td>
             </tr>
             <tr>
-                <th>Broader Concepts</th>
+                <th>Parent class</th>
                 <td>
-                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
     <div class="entity concept" id="Requirement">
-        <h3>Requirement<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Requirement<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Requirement (en)
               , 
@@ -644,7 +653,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Requirement</code></td>
+                <td><code>http://purl.org/nen/spec/Requirement</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -656,7 +665,7 @@
         </table>
     </div>
     <div class="entity concept" id="Stakeholder">
-        <h3>Stakeholder<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Stakeholder<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Stakeholder (en)
               , 
@@ -666,7 +675,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Stakeholder</code></td>
+                <td><code>http://purl.org/nen/spec/Stakeholder</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -678,7 +687,7 @@
         </table>
     </div>
     <div class="entity concept" id="Clause">
-        <h3>Statement<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Statement<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Clause (en)
               , 
@@ -688,7 +697,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Statement</code></td>
+                <td><code>http://purl.org/nen/spec/Statement</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -700,7 +709,7 @@
         </table>
     </div>
     <div class="entity concept" id="System">
-        <h3>System<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>System<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               System (en)
               , 
@@ -710,7 +719,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/System</code></td>
+                <td><code>http://purl.org/nen/spec/System</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -720,15 +729,15 @@
                 </td>
             </tr>
             <tr>
-                <th>Broader Concepts</th>
+                <th>Parent class</th>
                 <td>
-                    <a href="#Topic">Topic</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#Topic">Topic</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
     <div class="entity concept" id="Topic">
-        <h3>Topic<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Topic<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Subject (en)
               , 
@@ -738,7 +747,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Topic</code></td>
+                <td><code>http://purl.org/nen/spec/Topic</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -748,11 +757,11 @@
                 </td>
             </tr>
             <tr>
-                <th>Narrower Concepts</th>
+                <th>Subclasses</th>
                 <td>
-                    <a href="#System">System</a><sup class="sup-cp" title="concept">cp</sup><br/>
-                    <a href="#Project">Project</a><sup class="sup-cp" title="concept">cp</sup><br/>
-                    <a href="#Environment">Environment</a><sup class="sup-cp" title="concept">cp</sup><br/>
+                    <a href="#System">System</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Project">Project</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Environment">Environment</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
@@ -760,7 +769,7 @@
 	
 	
     <div class="entity concept" id="Must">
-        <h3>Must<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Must<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Must, Required, Shall (en)
               , 
@@ -770,7 +779,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Must</code></td>
+                <td><code>http://purl.org/nen/spec/Must</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -782,7 +791,7 @@
         </table>
     </div>
     <div class="entity concept" id="MustNot">
-        <h3>MustNot<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>MustNot<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Must not, Shall not (en)
               , 
@@ -792,7 +801,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Must</code></td>
+                <td><code>http://purl.org/nen/spec/Must</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -804,7 +813,7 @@
         </table>
     </div>	
     <div class="entity concept" id="Should">
-        <h3>Should<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>Should<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Should, Recommended (en)
               , 
@@ -814,7 +823,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Should</code></td>
+                <td><code>http://purl.org/nen/spec/Should</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -826,7 +835,7 @@
         </table>
     </div>
     <div class="entity concept" id="ShouldNot">
-        <h3>ShouldNot<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>ShouldNot<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Should not, Not recommended (en)
               , 
@@ -836,7 +845,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/Should</code></td>
+                <td><code>http://purl.org/nen/spec/Should</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -848,7 +857,7 @@
         </table>
     </div>
     <div class="entity concept" id="Should">
-        <h3>May<sup title="Concept" class="sup-cp">cp</sup></h3>
+        <h3>May<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
               Should, Recommended (en)
               , 
@@ -858,7 +867,7 @@
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>https://specified.ai/ontologies/spec/May</code></td>
+                <td><code>http://purl.org/nen/spec/May</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
@@ -875,7 +884,7 @@
     <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <dl>
         <dt>:</dt>
-        <dd><code>https://specified.ai/ontologies/spec/</code></dd>
+        <dd><code>http://purl.org/nen/spec</code></dd>
         <dt>c4o</dt>
         <dd><code>http://purl.org/spar/c4o/</code></dd>
         <dt>dc</dt>
@@ -888,8 +897,8 @@
         <dd><code>https://w3id.org/nen2660/def#</code></dd>
         <dt>owl</dt>
         <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
-        <dt>pattern</dt>
-        <dd><code>http://www.essepuntato.it/2008/12/pattern#</code></dd>
+        <dt>po</dt>
+        <dd><code>http://purl.org/spar/po</code></dd>
         <dt>rdf</dt>
         <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
         <dt>rdfs</dt>
@@ -901,7 +910,7 @@
         <dt>skos</dt>
         <dd><code>http://www.w3.org/2008/05/skos#</code></dd>
         <dt>spec-cat</dt>
-        <dd><code>https://specified.ai/ontologies/spec-category/</code></dd>
+        <dd><code>http://purl.org/nen/spec-cat</code></dd>
         <dt>xsd</dt>
         <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
     </dl>
@@ -909,10 +918,25 @@
 
   <section id="legend">
     <h2>Legend</h2>
-    <table class="entity">
-      <tr><td><sup class="sup-cl" title="Collections">cl</sup></td><td>Collections</td></tr>
-      <tr><td><sup class="sup-cp" title="Concepts">cp</sup></td><td>Concepts</td></tr>
-    </table>
+	  <table class="entity">
+		  <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+		  <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+		  <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+		  <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+		  <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+		  <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+		  <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+	  </table>
   </section>
+  
+<section id="references" style="text-align: left;">
+  <h2>References</h2> 
+<dl class="bibliography">
+
+<dt id="bib-DC">[SPAR]</dt>
+<dd>Peroni, S., Shotton, D., <a href=""><cite>The SPAR Ontologies</cite>. 2018, In Proceedings of the 17th International Semantic Web Conference (ISWC 2018): 119-136. DOI: <a href="https://doi.org/10.1007/978-3-030-00668-6_8">https://doi.org/10.1007/978-3-030-00668-6_8</a></dd>
+
+</dl>
+</section>
 </body>
 </html>
