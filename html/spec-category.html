@@ -189,12 +189,45 @@
 		div.head {
 			margin-bottom: 1em;
 		}
+		/* table */
+		table.overview thead,
+		table.overview tfoot {
+		  background-color: #3f87a6;
+		  color: #fff;
+		}
+
+		table.overview tbody {
+		  background-color: #e4f0f5;
+		}
+
+		table.overview caption {
+		  padding: 10px;
+		  caption-side: bottom;
+		}
+
+		table.overview {
+		  border-collapse: collapse;
+		  border: 2px solid rgb(200, 200, 200);
+		  letter-spacing: 1px;
+		  font-family: sans-serif;
+		  font-size: 0.8rem;
+		}
+
+		table.overview td,
+		table.overview th {
+		  border: 1px solid rgb(190, 190, 190);
+		  padding: 5px 10px;
+		}
+
+		 table.overview td {
+		  text-align: left;
+		}
     </style>
     
     <script type="application/ld+json">
       [
   {
-    "@id": "https://specified.ai/ontologies/spec/",
+    "@id": "https://data.nen.nl/spec-cat",
     "@type": [
       "https://schema.org/DefinedTermSet"
     ],
@@ -228,10 +261,10 @@
       <h2 style="display:none;">Concept Scheme</h2>
       <dl>
           <dt>URI</dt>
-          <dd><code>https://specified.ai/ontologies/spec-cat/</code></dd>
+          <dd><code>http://purl.org/nen/spec-cat</code></dd>
             <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
           <dd>
-              Robert Matousek, Rik Opgenoort, Redmer Kronemeijer, Herman Drenth, Jos Hebing<br/>
+              Robert Matousek, Rik, Redmer Kronemeijer, Herman Drenth, Jos Hebing<br/>
           </dd>
           <dt>Date</dt>
           <dd>23 August 2023</dd>		  
@@ -246,34 +279,566 @@
           <dd><a href="https://specified.ai/ontologies/spec/1.0">1.0</a></dd>
 		  -->
           <dt>Source</dt>
-          <dd><a href="https://specfied.ai/spec-category/">RDF (turtle)</a></dd>
+          <dd><a href="https://data.nen.nl/spec-cat/spec-cat.owl">RDF (XML)</a></dd>
           <dt>License</dt>
           <dd><a href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International</a></dd>		  
       </dl>
-      <h2>Description</h2>
+      <h2>Abstract</h2>
       <div id="description">
-          <p>The Specification Category Taxonomy is a structured framework or scheme to categorize requirements into distinct groups or classes. It is based on the following paper:<br/><br/> 
-		  'Towards an Anatomy of Software Requirements', Meyer, B., Bruel, JM., Ebersold, S., Galinier, F., Naumchev, A. (2019).<br/><br/>
-		   
-		  <!-- Towards an Anatomy of Software Requirements. In: Mazzara, M., Bruel, JM., Meyer, B., Petrenko, A. (eds) Software Technology: Methods and Tools. TOOLS 2019. Lecture Notes in Computer Science(), vol 11771. Springer, Cham. https://doi.org/10.1007/978-3-030-29852-4_2 -->
+          <p>The Specification Category Taxonomy is a structured framework or scheme to categorize requirements into distinct groups or classes. It is based on the paper 'Towards an Anatomy of Software Requirements' by Meyer et.al. [<a class="citation" rel="citation" href="#bib-SOURCE">SOURCE</a>]<br/><br/>
 		  </p>
       </div>
   </section>
   <section id="toc">
       <h2>Table of Contents</h2>
       <ol>
+		  <li><a href="#intro">Introduction</a></li>	  
+		  <li><a href="#overview">Overview</a></li>
+          <li><a href="#concepts">Classes</a></li>
           <li><a href="#namespaces">Namespaces</a></li>
           <li><a href="#legend">Legend</a></li>
+		  <li><a href="#references">References</a></li>		  
       </ol>
   </section>
+	<section id="intro">
+		<h2>Introduction</h2>
+		<div>
+			<p>The classification of requirements consists of two fundamental taxonomies:</p>
+			<ul>
+				<li>The basic requirement categories, disjoint from each other.</li>
+				<li>Other requirement categories, defined as subcategories of the basic requirement categories.</li>
+			</ul>	
+		</div>
+	</section>  
   <section id="overview">
       <h2>Overview</h2>
       <div class="figure">
-		  <div><img src="img/model-category.drawio.png" /></div>	  
+		  <div>
+			<table class="overview">
+				<caption>Categories and subcategories of requirements</caption>
+				<thead>
+					<tr>
+					  <th scope="col">Basic categories</th>
+					  <th scope="col">Subcategories</th>
+					  <th scope="col">Short definition</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Behavior</td>
+						<td></td>
+						<td>Property of an operation's effect</td>
+					</tr>
+					<tr>
+						<td rowspan="2">Component</td>
+						<td>&nbsp;</td>
+						<td>Part of the project, environment or system</td>
+					</tr>
+					<tr>
+						<td><i>Special case:</i>Actor</td>
+						<td>Human component</td>
+					</tr>					
+					<tr>
+						<td rowspan="7">Constraint</td>
+						<td>&nbsp;</td>
+						<td>Environment property</td>
+					</tr>
+					<tr>
+						<td>Assumption</td>					
+						<td>Assumed constraint</td>
+					</tr>
+					<tr>
+						<td>Obligation</td>					
+						<td>Imposed constraint</td>
+					</tr>					
+					<tr>
+						<td>Invariant</td>					
+						<td>Both assumption and obligation</td>
+					</tr>
+					<tr>
+						<td>Business rule</td>					
+						<td>Constraint due to organizational practices</td>
+					</tr>
+					<tr>
+						<td>Engineering decision</td>					
+						<td>Constraint due to human choices</td>
+					</tr>
+					<tr>
+						<td>Physical rule</td>					
+						<td>Constraint due to laws of nature</td>
+					</tr>		
+					<tr>
+						<td>Goal</td>
+						<td></td>
+						<td>Intended effect of project or system on environment</td>
+					</tr>
+					<tr>
+						<td>Lack</td>
+						<td></td>
+						<td>Missing requirement</td>
+					</tr>	
+					<tr>
+						<td>Limit</td>
+						<td></td>
+						<td>Property beyond scope of project/system/environment</td>
+					</tr>					
+					<tr>
+						<td rowspan="2">Meta-requirement</td>
+						<td>&nbsp;</td>
+						<td>Property of requirements but not of project, system or environment</td>
+					</tr>
+					<tr>
+						<td><i>Special case:</i>Justification</td>
+						<td>Rationale expressed in terms of a <i>goal</i></td>
+					</tr>
+					<tr>
+						<td>Product</td>
+						<td></td>
+						<td>Material or virtual object used or produced by a task</td>
+					</tr>
+					<tr>
+						<td>Role</td>
+						<td></td>
+						<td>Component's responsibility for behavior or task</td>
+					</tr>	
+					<tr>
+						<td>Task</td>
+						<td></td>
+						<td>Project activity</td>
+					</tr>					
+				</tbody>
+			</table>
+		  </div>	  
           <div class="caption"><strong>Figure 1:</strong> Taxonomy overview</div>
       </div>
   </section>
 
+  <section id="concepts">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hierarchy">
+		<!--<li><a href="http://purl.org/spar/doco/Figure">doco:Figure</a></li>-->
+		<li><a href="#Behavior">Behavior</a></li>
+		<li>
+			<a href="#Component">Component</a>
+			<ul><li><a href="#Actor">Actor</a></li></ul>
+		</li>
+		<li>
+			<a href="#Constraint">Constraint</a>
+			<ul><li><a href="#Assumption">Assumption</a></li></ul>
+			<ul><li><a href="#BusinessRule">Business rule</a></li></ul>	
+			<ul><li><a href="#EngineeringDecision">Engineering decision</a></li></ul>
+			<ul><li><a href="#Invariant">Invariant</a></li></ul>
+			<ul><li><a href="#Obligation">Obligation</a></li></ul>			
+			<ul><li><a href="#PhysicalRule">Physical rule</a></li></ul>
+		</li>		
+		<li><a href="#Goal">Goal</a></li>
+		<li><a href="#Lack">Lack</a></li>
+		<li><a href="#Limit">Limit</a></li>
+		<li><a href="#MetaRequirement">Meta requirement</a>
+			<ul><li><a href="#Justification">Justification</a></li></ul>
+		</li>		
+		<li><a href="#Obstacle">Obstacle</a></li>
+		<li><a href="#Product">Product</a></li>
+		<li><a href="#Role">Role</a></li>
+		<li><a href="#Task">Task</a></li>
+	</ul>
+	<!--
+    <div class="entity concept" id="figure">
+        <h3>figure<sup title="Concept" class="sup-cp">cp</sup></h3>
+            <h4>
+              figuur (nl)
+              , 
+              figure (en)
+              
+            </h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/spar/doco/Figure</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    Een visueel communicatieobject bestaande uit een of meer stilstaande beelden over een verwant thema.  Als een figuur in een publicatie wordt opgenomen, is hij gewoonlijk niet uitgelijnd met de hoofdtekst en heeft hij zijn eigen beschrijvende tekstuele figuurlegende.<br/>
+                    A visual communication object comprising one or more still images on a related theme.  If included within a publication, a figure is typically unaligned with the main body of text, having its own descriptive textual figure legend.<br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+	-->
+    <div class="entity concept" id="Actor">
+        <h3>Actor<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Actor</code></td>
+            </tr>
+            <tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="#Component">Component</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                </td>
+            </tr>			
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A human component.<br/><br/>
+					Examples include the stakeholders of a project; people involved in the operation of a system, such as an end-user or a system administrator.
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Assumption">
+        <h3>Assumption<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Assumption</code></td>
+            </tr>
+            <tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="#Constraint">Constraint</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                </td>
+            </tr>				
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A property that the environment may or may not possess but which the project may assume to hold for the development of the system.<br/><br/>
+					Example: (In a system to control a railroad crossing): Cars travel at no more than 200 km/h.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Behavior">
+        <h3>Behavior<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Behavior</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A property of the results or effects of the operation of the system or some of its components.<br/><br/>
+					Comment: The classic distinction of behaviors is into functional and non-functional.<br/><br/>
+					Example: Display the list of available elements.
+                </td>
+            </tr>
+        </table>
+    </div>	
+    <div class="entity concept" id="BusinessRule">
+        <h3>Business rule<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/BusinessRule</code></td>
+            </tr>
+            <tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="#Constraint">Constraint</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                </td>
+            </tr>				
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A constraint resulting from organizational practices.<br/><br/>
+					Examples: Delivery of phosgene requires that the recipient have taken a refresher course in handling hazardous chemicals in the past twelve months.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Component">
+        <h3>Component<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Component</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The property that the system, project or environment includes a certain part of.<br/><br/>
+					Comment: A component can be material, virtual or human.<br/><br/>
+					Example: The operating system is designed to run on the iPhone 8 and later models. (system component, material)<br/><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Constraint">
+        <h3>Constraint<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Constraint</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    An environment property that may affect components, goals, behaviors, tasks or products.<br/><br/>
+					Example: Every transfer over EUR 10,000 requires authorization.
+                </td>
+            </tr>
+        </table>
+    </div>		
+    <div class="entity concept" id="EngineeringDecision">
+        <h3>Engineering decision<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/EngineeringDecision</code></td>
+            </tr>
+            <tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="#Constraint">Constraint</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                </td>
+            </tr>				
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A constraint resulting from human choices.<br/><br/>
+					Example: The minimum and maximum bandwiths for a networking system.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Goal">
+        <h3>Goal<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Goal</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    An objective of the project or system, in terms of their desired effect on the environment.<br/><br/>
+					Comment: Having an effect on the environment means having an effect on an external entity such as a company or a physical device.<br/><br/>
+					Example: One of the advantages expected from the system is to reduce the amount of fraudulent invoices.
+                </td>
+            </tr>
+        </table>
+    </div>	
+    <div class="entity concept" id="Invariant">
+        <h3>Invariant<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Invariant</code></td>
+            </tr>
+            <tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="#Constraint">Constraint</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                </td>
+            </tr>				
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A property described both as an assumption and a behavior.<br/><br/>
+					Example: (In a factory control system): The system shall operate between -30 and +50C, which means that the system's operations may assume they start within this temperature range.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Justification">
+        <h3>Justification<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Justification</code></td>
+            </tr>
+            <tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="#MetaRequirement">Meta requirement</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                </td>
+            </tr>				
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A meta-requirement explaining the rationale for a requirement (of any kind) in terms of a goal.<br/><br/>
+					Example: If a specification for a software system does not specify Android among the platforms to be supported, it might include the justification that the company has made the strategic decision to equip its sales agents with iPhones.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Lack">
+        <h3>Lack<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Lack</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A property that should have a requirement, but does not.<br/><br/>
+					Example: Every transfer over EUR 10,000 requires authorization.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Limit">
+        <h3>Limit<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Limit</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The property that the project, system or environment does not include a requirement of one of the preceding kinds.<br/><br/>
+					Example: Providing an interface to SAP accounting falls outside of the scope of the present system. (component limit)
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Meta">
+        <h3>Meta-requirement<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/MetaRequirement</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A property of requirements themselves (not the system, project or environment).<br/><br/>
+					Example: Any observation intended to facilitate the reading of a specfication, such as "the details will appear in section 7", a statement of priority between requirements, an explanation, etc.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Obligation">
+        <h3>Obligation<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Obligation</code></td>
+            </tr>
+            <tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="#Constraint">Constraint</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                </td>
+            </tr>				
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A property that the environment is known to posess.<br/><br/>
+					Example: The rules on bank transfer.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Obstacle">
+        <h3>Obstacle<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Obstacle</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A goal defined as the need to overcome a negative property of the environment.<br/><br/>
+					Example: With the current system, too many enquiries that could lead to sales are missed.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="PhysicalRule">
+        <h3>Physical rule<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/PhysicalRule</code></td>
+            </tr>
+            <tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="#Constraint">Constraint</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                </td>
+            </tr>				
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A constraint resulting from the laws of nature.<br/><br/>
+					Example: The application of the law of mechanics to a satelite launching system.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Product">
+        <h3>Product<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Product</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The property that a task uses or produces a material or virtual object.<br/><br/>
+					Comment: The classic distinction of behaviors is into functional and non-functional.<br/><br/>
+					Examples: a test plan, a user story, a design document.
+                </td>
+            </tr>
+        </table>
+    </div>	
+    <div class="entity concept" id="Responsibility">
+        <h3>Responsibility<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Responsibility</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A human role.<br/><br/>
+					Example: The reservation system's UI shall be designed for operation by railway-station booking agents. (behavior role, human component)
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Role">
+        <h3>Role<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Role</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The property that a component carries some or all of the responsibility for a behavior or a task.<br/><br/>
+					Example: The Amsterdam subsidiary shall be responsible for the implementation of the user interface subsystem. (task role, human component of the project)
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="Task">
+        <h3>Task<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-cat/Task</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The property that the project includes a certain activity.<br/><br/>
+					Examples: program coding, stakeholder interview, daily meeting.
+                </td>
+            </tr>
+        </table>
+    </div>	
+  </section>
+  
   <section id="namespaces">
     <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <dl>
@@ -308,12 +873,26 @@
     </dl>
 </section>
 
-  <section id="legend">
-    <h2>Legend</h2>
-    <table class="entity">
-      <tr><td><sup class="sup-cl" title="Collections">cl</sup></td><td>Collections</td></tr>
-      <tr><td><sup class="sup-cp" title="Concepts">cp</sup></td><td>Concepts</td></tr>
-    </table>
-  </section>
+<section id="legend">
+	<h2>Legend</h2>
+	<table class="entity">
+	  <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+	  <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+	  <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+	  <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+	  <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+	  <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+	  <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+	</table>
+</section>
+
+<section id="references" style="text-align: left;">
+	<h2>References</h2> 
+	<dl class="bibliography">
+		<dt id="bib-SOURCE">[SOURCE]</dt>
+		<dd>Meyer, B., Bruel, J., Ebersold, S., Galinier, F., Naumchev, A. (2019). Towards an Anatomy of Software Requirements. 10.1007/978-3-030-29852-4_2.</dd>
+	</dl>
+</section>
+
 </body>
 </html>
