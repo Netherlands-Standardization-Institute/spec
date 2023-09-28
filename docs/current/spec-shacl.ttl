@@ -254,26 +254,6 @@
 	sh:datatype xsd:string ;
 	.
 
-:Property rdf:type rdfs:Class ;
-	rdfs:subClassOf :Performance ;
-	rdfs:label "Property"@en ,"Eigenschap"@nl ;
-	.
-
-:Function rdf:type rdfs:Class ;
-	rdfs:subClassOf :Performance ;
-	rdfs:label "Function"@en,"Functie"@nl ;
-	.
-
-:Activity rdf:type rdfs:Class ;
-	rdfs:subClassOf :Performance ;
-	rdfs:label "Activity"@en, "Activiteit"@nl ;
-	.
-	
-:Reference rdf:type rdfs:Class ;
-	rdfs:subClassOf :Performance ;
-	rdfs:label "Reference"@en ,"Verwijzing"@nl ;
-	.
-
 ## PROPERTY CONDITIONS
 
 :Condition rdf:type rdfs:Class ;
