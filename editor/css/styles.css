@@ -1,0 +1,30 @@
+#requirement {
+	margin-top: 32px
+}
+.text, .value {
+	font-size: 48px;
+}
+.text {
+	font-weight: bold;
+	display: inline-block;
+	margin-right: 20px;			
+}
+.text, .value {
+	margin-bottom: 5px;			
+}
+input.value {
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0.25rem solid;
+	max-width: 48%;
+}
+select.value {
+	color: grey;
+	padding: 5px;
+	margin-top: 10px;
+}
+input.optional {
+	font-style: italic;
+	font-weight: lighter;
+}
