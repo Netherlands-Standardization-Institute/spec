@@ -15,8 +15,9 @@ SPEC aims to extend the Semantic Publishing and Referencing Ontologies ([SPAR](h
 **Cite as:** Matousek, R., Opgenoort, R., Kronemeijer, R., Drenth, H., Hebing, J. (2023). The Specifications Ontology (SPEC).
 
 ## Example
-Here is an example for the following statement: 
-NL: "Een voetpad moet een minimale hoogte hebben van 2.30m"
+Here is an example for the following statement: \
+\
+NL: "Een voetpad moet een minimale hoogte hebben van 2.30m" \
 EN: "A sidewallk must have a minimal height of 2.30m"
 
 ![Machine Readable Requirement](https://github.com/Netherlands-Standardization-Institute/spec/blob/449e2340a47b4d5bd0c7c356435bbf0bfa956526/html/img/example-req-1.drawio.png)
