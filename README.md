@@ -12,7 +12,7 @@ SPEC aims to extend the Semantic Publishing and Referencing Ontologies ([SPAR](h
 
 **License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
 
-**Cite as:** Matousek, R., Opgenoort, R., Kronemeijer, R., Drenth, H., Hebing, J. (2023). The Specifications Ontology (SPEC).
+**Cite as:** Matousek, R., Rik (CROW), Kronemeijer, R., Drenth, H., Hebing, J. (2023). The Specifications Ontology (SPEC).
 
 ## Example
 Here is an example for the following statement: \
