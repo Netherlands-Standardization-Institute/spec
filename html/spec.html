@@ -234,7 +234,7 @@
               Robert Matousek, Rik, Redmer Kronemeijer, Herman Drenth, Jos Hebing<br/>
           </dd>
           <dt>Date</dt>
-          <dd>23 August 2023</dd>		  
+          <dd>26 October 2023</dd>		  
 		  <!--
           <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor">Contributor</a>(s)</dt>
           <dd>None</dd>
@@ -263,7 +263,8 @@
       <ol>
 		  <li><a href="#intro">Introduction</a></li>	  
 		  <li><a href="#overview">Overview</a></li>
-          <li><a href="#concepts">Classes</a></li>
+          <li><a href="#classes">Classes</a></li>
+		  <li><a href="#objectproperties">Object properties</a></li>
           <li><a href="#namespaces">Namespaces</a></li>
           <li><a href="#legend">Legend</a></li>
 		  <li><a href="#references">References</a></li>
@@ -273,6 +274,22 @@
 		<h2>Introduction</h2>
 		<div>
 			<p>The SPEC ontology aims to extend the Semantic Publishing and Referencing Ontologies [<a class="citation" rel="citation" href="#bib-SPAR">SPAR</a>] to enable all aspects of the standards development process to be described in machine-readable metadata statements, encoded using RDF.</p>
+			<p>Prior to creating SPEC we researched various ontologies, including:</p>
+			<ul>
+				<li>Goal-Oriented Requirements Ontology [<a href="#bib-GORO">GORO</a>],</li>
+				<li>Soft-wiki for Requirements Engineering [<a href="#bib-SWORE" >SWORE</a>],</li>
+				<li>Core Ontology for Requirements Engineering [<a href="#bib-CORE">CORE</a>],</li>
+				<li>Reference Software Requirements Ontology [<a href="#bib-RSRO">RSRO</a>]</li>
+				<li>and Ontology-driven Requirements Engineering Methodology (OntoREM)</li>
+			</ul>
+			<p>However these ontologies were either:</p>
+			<ul>
+				<li>to complex or abstract,</li>
+				<li>included things not relevant to the domain (e.g. desires, beliefs intentions),</li>
+				<li>not granular enough,</li>
+				<li>or focused primarly on the system or project rather than the document.</li>
+			</ul>
+			<p>We wanted to define the semantics of written statements containing one or more requirements and deconstruct these requirements into their parts.</p>				
 		</div>
 	</section>
   <section id="overview">
@@ -282,40 +299,55 @@
           <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
       </div>
   </section>
-  <section id="concepts">
+  <section id="classes">
     <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-    <ul class="hierarchy">
+    <ul class="hlist">
 		<!--<li><a href="http://purl.org/spar/doco/Figure">doco:Figure</a></li>-->
-		<li><a href="#Actor">Actor</a></li>
-		<li><a href="#Bindingness">Bindingness</a>
-			<ul><li><a href="#Must">Must</a></li></ul>
-			<ul><li><a href="#MustNot">MustNot</a></li></ul>
-			<ul><li><a href="#Should">Should</a></li></ul>
-			<ul><li><a href="#ShouldNot">ShouldNot</a></li></ul>
-			<ul><li><a href="#May">May</a></li></ul>					
-		</li>
-		<li><a href="#Category">Category</a></li>
-		<li><a href="#Condition">Condition</a></li>
-		<li><a href="#MainVerb">MainVerb</a></li>
-		<li><a href="#Margin">Margin</a></li>
-		<li>
-			<a href="#Performance">Performance</a>
-			<ul><li><a href="#Activity">Activity</a></li></ul>
-			<ul><li><a href="#Function">Function</a></li></ul>
-			<ul><li><a href="#Property">Property</a></li></ul>
-			<ul><li><a href="#Reference">Reference</a></li></ul>
-		</li>
-		<li><a href="#Requirement">Requirement</a></li>
-		<li><a href="#Stakeholder">Stakeholder</a></li>
-		<li><a href="#Statement">Statement</a></li>
-		<li>
-			<a href="#Topic">Topic</a>
-			<ul><li><a href="#Environment">Environment</a></li></ul>
-			<ul><li><a href="#Project">Project</a></li></ul>
-			<ul><li><a href="#System">System</a></li></ul>
-		</li>
+		<li><a href="#Actor">actor</a></li>
+		<li><a href="#Bindingness">bindingness</a></li>
+		<li><a href="#Category">category</a></li>
+		<li><a href="#Condition">condition</a></li>
+		<li><a href="#ContentMathML">content math ml</a></li>
+		<li><a href="#Environment">environment</a></li>
+		<li><a href="#Latex">latex</a></li>		
+		<li><a href="#MainVerb">main verb</a></li>
+		<li><a href="#Margin">margin of error</a></li>		
+		<li><a href="#May">may</a></li>
+		<li><a href="#Must">must</a></li>
+		<li><a href="#MustNot">must not</a></li>
+		<li><a href="#Should">should</a></li>
+		<li><a href="#ShouldNot">should not</a></li>
+		<!--//
+		<li><a href="#Activity">activity</a></li>
+		<li><a href="#Function">function</a></li>
+		<li><a href="#Property">property</a></li>
+		<li><a href="#Reference">reference</a></li>
+		//-->
+		<li><a href="#Requirement">requirement</a></li>
+		<li><a href="#Performance">performance</a></li>
+		<li><a href="#Project">project</a></li>
+		<li><a href="#Stakeholder">stakeholder</a></li>
+		<li><a href="#Statement">statement</a></li>
+		<li><a href="#StrictMathML">strict content math ml</a></li>
+		<li><a href="#System">system</a></li>		
+		<li><a href="#Topic">topic</a></li>
 	</ul>
-	<!--
+	<!--//
+	<h3>Bindingness</h3>
+	<ul class="hlist">
+		<li><a href="#Must">must</a></li>
+		<li><a href="#MustNot">must not</a></li>
+		<li><a href="#Should">should</a></li>
+		<li><a href="#ShouldNot">should not</a></li>
+		<li><a href="#May">may</a></li>
+	</ul>
+
+	<h3>Topics</h3>
+	<ul class="hlist">
+		<li><a href="#Environment">environment</a></li>
+		<li><a href="#Project">project</a></li>
+		<li><a href="#System">system</a></li>
+	</ul>
     <div class="entity concept" id="figure">
         <h3>figure<sup title="Concept" class="sup-cp">cp</sup></h3>
             <h4>
@@ -338,7 +370,6 @@
             </tr>
         </table>
     </div>
-	-->
     <div class="entity concept" id="Activity">
         <h3>Activiteit<sup title="Concept" class="sup-cp">cl</sup></h3>
             <h4>
@@ -360,14 +391,11 @@
             </tr>
         </table>
     </div>
+	//-->
+
     <div class="entity concept" id="Actor">
-        <h3>Actor<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Actor (en)
-              , 
-              Acteur (nl)
-              
-            </h4>
+        <h3>actor<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>actor (en), acteur (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -383,13 +411,8 @@
         </table>
     </div>
     <div class="entity concept" id="Bindingness">
-        <h3>Bindingness<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Bindingness (en)
-              , 
-              Bindenheid (nl)
-              
-            </h4>
+        <h3>bindingness<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>bindingness (en), bindendheid (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -402,16 +425,21 @@
                     De mate waarin iets vereist is. Zie [<a class="citation" rel="citation" href="#bib-RFC">RFC 2119</a>].
                 </td>
             </tr>
+			<tr>
+                <th>Subclasses</th>
+                <td>
+                    <a href="#Must">must</a><sup class="sup-cp" title="concept">cl</sup><br>
+                    <a href="#MustNot">must not</a><sup class="sup-cp" title="concept">cl</sup><br>
+                    <a href="#Should">should</a><sup class="sup-cp" title="concept">cl</sup><br>
+                    <a href="#ShouldNot">should not</a><sup class="sup-cp" title="concept">cl</sup><br>
+                    <a href="#May">may</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>			
         </table>
     </div>
     <div class="entity concept" id="Category">
-        <h3>Category<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Category (en)
-              , 
-              Categorie (nl)
-              
-            </h4>
+        <h3>category<sup title="Concept" class="sup-cp">cl</sup></h3>
+        <h4>category (en), categorie (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -427,13 +455,8 @@
         </table>
     </div>
     <div class="entity concept" id="Condition">
-        <h3>Condition<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Condition (en)
-              , 
-              Conditie (nl)
-              
-            </h4>
+        <h3>condition<sup title="Concept" class="sup-cp">cl</sup></h3>
+            <h4>condition (en), conditie (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -448,14 +471,32 @@
             </tr>
         </table>
     </div>
+    <div class="entity concept" id="ContentMathML">
+        <h3>content math ml<sup title="ContentMathML" class="sup-cp">cl</sup></h3>
+		<h4>Content MathML</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/ContentMathML</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A mathematical equation in Content MathML.<br/><br/>
+					Een wiskundige formule in Content MathML.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Datatype">rdfs:Datatype</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>			
+        </table>
+    </div>	
     <div class="entity concept" id="Environment">
-        <h3>Environment<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Environment (en)
-              , 
-              Omgeving (nl)
-              
-            </h4>
+        <h3>environment<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>environment (en), omgeving (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -471,19 +512,15 @@
             <tr>
                 <th>Parent class</th>
                 <td>
-                    <a href="#Topic">Topic</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Topic">topic</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
+	<!--//
     <div class="entity concept" id="Function">
         <h3>Function<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Function (en)
-              , 
-              Functie (nl)
-              
-            </h4>
+		<h4>Function (en), Functie (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -492,19 +529,38 @@
             <tr>
                 <th>Parent class</th>
                 <td>
-                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Performance">performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
+	//-->
+    <div class="entity concept" id="Latex">
+        <h3>latex<sup title="Latex" class="sup-cp">cl</sup></h3>
+		<h4>LaTex</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/Latex</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A mathematical equation in LaTex.<br/><br/>
+					Een wiskundige formule in LaTex.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Datatype">rdfs:Datatype</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>		
+        </table>
+    </div>	
     <div class="entity concept" id="MainVerb">
-        <h3>Main verb<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Main verb (en)
-              , 
-              Hoofd werkwoord (nl)
-              
-            </h4>
+        <h3>main verb<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>main verb (en), hoofd werkwoord (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -520,13 +576,8 @@
         </table>
     </div>
     <div class="entity concept" id="Errormargin">
-        <h3>Error margin<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Error margin (en)
-              , 
-              Foutmarge (nl)
-              
-            </h4>
+        <h3>margin of error<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>margin of error (en), foutmarge (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -540,15 +591,79 @@
                 </td>
             </tr>
         </table>
+    </div>	
+    <div class="entity concept" id="May">
+        <h3>may<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>should, recommended (en), zou moeten, aanbevolen (nl)</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/May</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The item is truly optional.<br/><br/>
+					Dit onderdeel is daadwerkelijk optioneel.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="#Bindingness">bindingness</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>			
+        </table>
+    </div>	
+    <div class="entity concept" id="Must">
+        <h3>must<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>must, required, shall (en), moet, vereist (nl)</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/Must</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    An absolute requirement of the specification.<br/><br/>
+					Een absolute vereiste van de specificatie.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="#Bindingness">bindingness</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>
+        </table>
     </div>
+    <div class="entity concept" id="MustNot">
+        <h3>must not<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>must not, shall not (en), mag niet, verboden (nl)</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/Must</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    An absolute prohibition of the specification.<br/><br/>
+					Een absoluut verbod van de specificatie.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="#Bindingness">bindingness</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>			
+        </table>
+    </div>	
     <div class="entity concept" id="Performance">
-        <h3>Performance<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Performance (en)
-              , 
-              Prestatie (nl)
-              
-            </h4>
+        <h3>performance<sup title="Concept" class="sup-cp">cl</sup></h3>
+            <h4>performance (en), prestatie (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -561,25 +676,22 @@
                     De meetbare prestatie die vereist is of de beperking van de actie.
                 </td>
             </tr>
+			<!--//
             <tr>
                 <th>Subclasses</th>
                 <td>
-                    <a href="#Function">Function</a><sup class="sup-cp" title="concept">cl</sup><br/>
-                    <a href="#Reference">Reference</a><sup class="sup-cp" title="concept">cl</sup><br/>
-                    <a href="#Property">Property</a><sup class="sup-cp" title="concept">cl</sup><br/>
-                    <a href="#Activity">Activity</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Function">function</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Reference">reference</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Property">property</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Activity">activity</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
+			//-->
         </table>
     </div>
     <div class="entity concept" id="Project">
-        <h3>Project<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Project (en)
-              , 
-              Project (nl)
-              
-            </h4>
+        <h3>project<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>project</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -595,19 +707,15 @@
             <tr>
                 <th>Parent class</th>
                 <td>
-                    <a href="#Topic">Topic</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Topic">topic</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
+	<!--//
     <div class="entity concept" id="Property">
-        <h3>Property<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Property (en)
-              , 
-              Eigenschap (nl)
-              
-            </h4>
+        <h3>property<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>property (en), eigenschap (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -616,19 +724,14 @@
             <tr>
                 <th>Parent class</th>
                 <td>
-                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Performance">performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
     <div class="entity concept" id="Reference">
-        <h3>Reference<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Reference (en)
-              , 
-              Verwijzing (nl)
-              
-            </h4>
+        <h3>Reference<sup title="Concept" class="sup-cp">cl</sup></h3>\
+		<h4>reference (en), verwijzing (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -637,19 +740,15 @@
             <tr>
                 <th>Parent class</th>
                 <td>
-                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Performance">performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
+	//-->
     <div class="entity concept" id="Requirement">
-        <h3>Requirement<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Requirement (en)
-              , 
-              Eis (nl)
-              
-            </h4>
+        <h3>requirement<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>requirement (en), eis (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -664,14 +763,55 @@
             </tr>
         </table>
     </div>
+    <div class="entity concept" id="Should">
+        <h3>should<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>should, recommended (en), zou moeten, aanbevolen (nl)</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/Should</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    Valid reasons may exist in particular circumstances to ignore a particular item, but the full implications must be understood and carefully weighed before choosing a different course.<br/><br/>
+					Geven een sterke wens aan, tenzij er een valide reden is om in een specifiek geval af te wijken. De implicaties daarvan moeten zorgvuldig gewogen zijn voordat er afgeweken wordt.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="#Bindingness">bindingness</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>			
+        </table>
+    </div>
+    <div class="entity concept" id="ShouldNot">
+        <h3>should not<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>should not, not recommended (en), zou niet moeten (nl)</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/Should</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    Valid reasons may exist in particular circumstances when the particular behavior is acceptable or even useful, but the full implications should be understood and the case carefully weighed.<br/><br/>
+					Geven een ongewenste omstandigheid, waarvan volledige implicaties daarvan zorgvuldig gewogen moeten zijn voordat het in een specifiek geval toegestaan is.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="#Bindingness">bindingness</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>			
+        </table>
+    </div>		
     <div class="entity concept" id="Stakeholder">
-        <h3>Stakeholder<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Stakeholder (en)
-              , 
-              Stakeholder (nl)
-              
-            </h4>
+        <h3>stakeholder<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>stakeholder</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -687,13 +827,8 @@
         </table>
     </div>
     <div class="entity concept" id="Clause">
-        <h3>Statement<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Clause (en)
-              , 
-              Clausule (nl)
-              
-            </h4>
+        <h3>statement<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>clause (en), clausule (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -708,14 +843,32 @@
             </tr>
         </table>
     </div>
+    <div class="entity concept" id="StrictMathML">
+        <h3>strict content math ml<sup title="StrictMathML" class="sup-cp">cl</sup></h3>
+		<h4>Strict Content MathML</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/StrictMathML</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A mathematical equation in Strict Content MathML.<br/><br/>
+					Een wiskundige formule in Strict Content MathML.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Datatype">rdfs:Datatype</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>			
+        </table>
+    </div>	
     <div class="entity concept" id="System">
-        <h3>System<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              System (en)
-              , 
-              Systeem (nl)
-              
-            </h4>
+        <h3>system<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>system (en), systeem (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -731,19 +884,14 @@
             <tr>
                 <th>Parent class</th>
                 <td>
-                    <a href="#Topic">Topic</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Topic">topic</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
     <div class="entity concept" id="Topic">
-        <h3>Topic<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Subject (en)
-              , 
-              Onderwerp (nl)
-              
-            </h4>
+        <h3>topic<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>subject (en), onderwerp (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
@@ -759,124 +907,107 @@
             <tr>
                 <th>Subclasses</th>
                 <td>
-                    <a href="#System">System</a><sup class="sup-cp" title="concept">cl</sup><br/>
-                    <a href="#Project">Project</a><sup class="sup-cp" title="concept">cl</sup><br/>
-                    <a href="#Environment">Environment</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#System">system</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Project">project</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="#Environment">environment</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
-    </div>
-	
-	
-    <div class="entity concept" id="Must">
-        <h3>Must<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Must, Required, Shall (en)
-              , 
-              Moet, Vereist (nl)
-              
-            </h4>
+    </div>		
+</section>
+
+
+<section id="objectproperties">
+    <h2>Object properties <span style="float:right; font-size:smaller;"><a href="">↑</a></span></h2>
+    <ul class="hlist">
+		<li><a href="#hasBindingness">has bindingness</a></li>
+		<li><a href="#hasCategory">has category</a></li>
+		<li><a href="#hasCondition">has condition</a></li>	
+		<li><a href="#hasPerformance">has performance</a></li>
+		<li><a href="#hasStakeholder">has stakeholder</a></li>
+		<li><a href="#hasTopic">has topic</a></li>
+		<li><a href="#isDerivedFrom">is derived from</a></li>
+		<li><a href="#refersTo">refers to</a></li>
+	</ul>
+    <div class="entity" id="hasBindingness">
+        <h3>has bindingness<sup title="object property" class="type-op">op</sup></h3>
+            <h4>has bindingness (en), heeft bindendheid (nl)</h4>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>URI</th>
-                <td><code>http://purl.org/nen/spec/Must</code></td>
+                <td><code>http://purl.org/nen/spec/hasBindingness</code></td>
             </tr>
-            <tr>
-                <th>Definition</th>
-                <td>
-                    An absolute requirement of the specification.<br/><br/>
-					Een absolute vereiste van de specificatie.
-                </td>
-            </tr>
-        </table>
+        </tbody></table>
     </div>
-    <div class="entity concept" id="MustNot">
-        <h3>MustNot<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Must not, Shall not (en)
-              , 
-              Mag niet, Verboden (nl)
-              
-            </h4>
+    <div class="entity" id="hasCategory">
+        <h3>has category<sup title="object property" class="type-op">op</sup></h3>
+            <h4>has category (en), heeft categorie (nl)</h4>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>URI</th>
-                <td><code>http://purl.org/nen/spec/Must</code></td>
+                <td><code>http://purl.org/nen/spec/hasCategory</code></td>
             </tr>
-            <tr>
-                <th>Definition</th>
-                <td>
-                    An absolute prohibition of the specification.<br/><br/>
-					Een absoluut verbod van de specificatie.
-                </td>
+        </tbody></table>
+    </div>
+    <div class="entity" id="hasCondition">
+        <h3>has condition<sup title="object property" class="type-op">op</sup></h3>
+            <h4>has condition (en), heeft conditie (nl)</h4>
+        <table>
+            <tbody><tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/hasCondition</code></td>
             </tr>
-        </table>
+        </tbody></table>
+    </div>
+    <div class="entity" id="hasPerformance">
+        <h3>has performance<sup title="object property" class="type-op">op</sup></h3>
+            <h4>has performance (en), heeft prestatie (nl)</h4>
+        <table>
+            <tbody><tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/hasPerformance</code></td>
+            </tr>
+        </tbody></table>
+    </div>
+    <div class="entity" id="hasStakeholder">
+        <h3>has stakeholder<sup title="object property" class="type-op">op</sup></h3>
+            <h4>has stakeholder (en), heeft stakeholder (nl)</h4>
+        <table>
+            <tbody><tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/hasStakeholder</code></td>
+            </tr>
+        </tbody></table>
+    </div>
+    <div class="entity" id="hasTopic">
+        <h3>has topic<sup title="object property" class="type-op">op</sup></h3>
+            <h4>has topic (en), heeft als onderwerp (nl)</h4>
+        <table>
+            <tbody><tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/hasTopic</code></td>
+            </tr>
+        </tbody></table>
+    </div>
+    <div class="entity" id="isDerivedFrom">
+        <h3>is derived from<sup title="object property" class="type-op">op</sup></h3>
+            <h4>is derived from (en), is afgeleid van (nl)</h4>
+        <table>
+            <tbody><tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/isDerivedFrom</code></td>
+            </tr>
+        </tbody></table>
     </div>	
-    <div class="entity concept" id="Should">
-        <h3>Should<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Should, Recommended (en)
-              , 
-              Zou moeten, Aanbevolen (nl)
-              
-            </h4>
+    <div class="entity" id="refersTo">
+        <h3>refers to<sup title="object property" class="type-op">op</sup></h3>
+            <h4>refers to (en), verwijst naar (nl)</h4>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>URI</th>
-                <td><code>http://purl.org/nen/spec/Should</code></td>
+                <td><code>http://purl.org/nen/spec/refersTo</code></td>
             </tr>
-            <tr>
-                <th>Definition</th>
-                <td>
-                    Valid reasons may exist in particular circumstances to ignore a particular item, but the full implications must be understood and carefully weighed before choosing a different course.<br/><br/>
-					Geven een sterke wens aan, tenzij er een valide reden is om in een specifiek geval af te wijken. De implicaties daarvan moeten zorgvuldig gewogen zijn voordat er afgeweken wordt.
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="entity concept" id="ShouldNot">
-        <h3>ShouldNot<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Should not, Not recommended (en)
-              , 
-              Zou niet moeten (nl)
-              
-            </h4>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>http://purl.org/nen/spec/Should</code></td>
-            </tr>
-            <tr>
-                <th>Definition</th>
-                <td>
-                    Valid reasons may exist in particular circumstances when the particular behavior is acceptable or even useful, but the full implications should be understood and the case carefully weighed.<br/><br/>
-					Geven een ongewenste omstandigheid, waarvan volledige implicaties daarvan zorgvuldig gewogen moeten zijn voordat het in een specifiek geval toegestaan is.
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="entity concept" id="Should">
-        <h3>May<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Should, Recommended (en)
-              , 
-              Zou moeten, Aanbevolen (nl)
-              
-            </h4>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>http://purl.org/nen/spec/May</code></td>
-            </tr>
-            <tr>
-                <th>Definition</th>
-                <td>
-                    The item is truly optional.<br/><br/>
-					Dit onderdeel is daadwerkelijk optioneel.
-                </td>
-            </tr>
-        </table>
+        </tbody></table>
     </div>	
 </section>
 
@@ -932,12 +1063,20 @@
 <section id="references" style="text-align: left;">
 	<h2>References</h2> 
 	<dl class="bibliography">
-		<dt id="bib-RFC">[RFC 2119]</dt>
-		<dd>Bradner, S., <cite>Key words for use in RFCs to Indicate Requirement Levels</cite>. BCP 14, <a href="https://www.rfc-editor.org/info/rfc2119">RFC 2119</a>, DOI 10.17487/RFC2119, March 1997.</dd>
+		<dt id="bib-CORE">[CORE]</dt>
+		<dd>Jureta, I., Mylopoulos, J., Faulkner, S., <cite>A core ontology for requirements</cite> In: Applied Ontology, 4(3-4), pp.169-244. DOI: 10.3233/AO-2009-0069</dd>		
+		<dt id="bib-GORO">[GORO]</dt>
+		<dd>Bernabé, C.H., Silva Souza, V.E., Almeida Falbo, R.d., Guizzardi, R.S.S., Silva, C. (2019). <cite>GORO 2.0: Evolving an Ontology for Goal-Oriented Requirements Engineering.</cite> In: Guizzardi, G., Gailly, F., Suzana Pitangueira Maciel, R. (eds) Advances in Conceptual Modeling. ER 2019. Lecture Notes in Computer Science, vol 11787. Springer, Cham. <a href="https://doi.org/10.1007/978-3-030-34146-6_15">https://doi.org/10.1007/978-3-030-34146-6_15</a></dd>
 		<dt id="bib-SPAR">[SPAR]</dt>
 		<dd>Peroni, S., Shotton, D., <cite>The SPAR Ontologies</cite>. 2018, In Proceedings of the 17th International Semantic Web Conference (ISWC 2018): 119-136. DOI: <a href="https://doi.org/10.1007/978-3-030-00668-6_8">https://doi.org/10.1007/978-3-030-00668-6_8</a></dd>
 		<dt id="bib-SPEC-CAT">[SPEC-CAT]</dt>
 		<dd>Matousek, R., et. al. <cite>A Specification Taxonomy</cite>. 2023, URL: <a href="https://data.nen.nl/spec-cat/docs/">https://data.nen.nl/spec-cat/docs/</a></dd>
+		<dt id="bib-SWORE">[SWORE]</dt>
+		<dd>Riechert, T., Lauenroth, K., Lehmann, J., <cite>SWORE - SoftWiki Ontology for Requirements Engineering</cite> In: The Social Semantic Web 2007, Proceedings of the 1st Conference on Social Semantic Web (CSSW), September 26-28, 2007, Leipzig, Germany, pp. 111–118, GI, 2007. <a href="http://jens-lehmann.org/files/2007/swore.pdf">SWORE</a></dd>
+		<dt id="bib-RFC">[RFC 2119]</dt>
+		<dd>Bradner, S., <cite>Key words for use in RFCs to Indicate Requirement Levels</cite>. BCP 14, <a href="https://www.rfc-editor.org/info/rfc2119">RFC 2119</a>, DOI 10.17487/RFC2119, March 1997.</dd>		
+		<dt id="bib-RSRO">[RSRO]</dt>
+		<dd>Duarte, Bruno & Leal, Andre & Falbo, Ricardo & Guizzardi, Giancarlo & Guizzardi, Renata & Silva Souza, Vítor. (2018). <cite>Ontological foundations for software requirements with a focus on requirements at runtime</cite> In: Applied Ontology. 13. 1-33. DOI: 10.3233/AO-180197. BCP 14, <a href="https://dev.nemo.inf.ufes.br/seon/RSRO.html">RSRO</a></dd>				
 	</dl>
 </section>
 </body>
