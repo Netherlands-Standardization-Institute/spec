@@ -1,5 +1,6 @@
-@prefix : <http://purl.org/nen/spec-cat> .
-@prefix spec: <http://purl.org/nen/spec> .
+@prefix : <http://purl.org/nen/spec-cat/> .
+@prefix spec: <http://purl.org/nen/spec/> .
+@prefix spec-bind: <http://purl.org/nen/spec-bind/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -14,7 +15,7 @@
 
 #TODO: Uitwerken in volledige SKOS
 
-: rdf:type owl:Ontology ;
+<http://purl.org/nen/spec-cat> rdf:type owl:Ontology ;
     owl:versionInfo "1.0"^^xsd:string ;
     dc:creator "Robert Matousek"^^xsd:string ;
 	dc:contributor <https://rdmr.eu/>, <https://rix.fyi/> ;
@@ -33,7 +34,8 @@
         "This ontology is available at https://specified.ai/ontologies/spec-cat/, and uses the namespace prefix spec-cat."@en ;
     dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
     rdfs:seealso <https://smart-researchteam.github.io/publication/dblp-conftools-0001-begn-19/>, <https://link.springer.com/chapter/10.1007/978-3-030-29852-4_2>;
-    owl:imports <http://purl.org/nen/spec/> ;
+    owl:imports <http://purl.org/nen/spec> ;
+#	owl:versionIRI <https://specified.ai/ontologies/spec-cat/1.0> ;
 	.
 
 :Component rdf:type spec:Category ;
