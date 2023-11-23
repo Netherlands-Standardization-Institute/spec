@@ -153,11 +153,11 @@
 	.
 
 :hasCategory rdf:type owl:DataProperty ;
-	rdfs:label "has bindingness"@en, "heeft bindendheid"@nl ;
+	rdfs:label "belongs to category"@en, "behoort tot categorie"@nl ;
 	.
 
 :hasCondition rdf:type owl:DataProperty ;
-	rdfs:label "has bindingness"@en, "heeft bindendheid"@nl ;
+	rdfs:label "has condition"@en, "heeft conditie"@nl ;
 	.
 
 :hasMainVerb rdf:type owl:DataProperty ;
