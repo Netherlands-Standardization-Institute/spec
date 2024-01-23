@@ -13,6 +13,7 @@
 @prefix po: <http://purl.org/spar/po> .
 @prefix nen2660: <https://w3id.org/nen2660/def#> .
 @prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix c4o: <http://purl.org/spar/c4o/>.
 
 #TODO: Uitwerken in volledige SKOS
 
