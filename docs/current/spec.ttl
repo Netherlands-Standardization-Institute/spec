@@ -51,7 +51,7 @@
 		"A requirement is a specification of a property of a project, system or environment."@en,
 		"Een eis is een specificatie van een eigenschap van een project, systeem of omgeving."@nl ;
 	frbr:embodiment	doco:Sentence ;
-	sh:property :RequirementText, :RequirementContainer, :RequirementBindingness, :RequirementPerformance, :RequirementCondition, :RequirementMainVerb, :RequirementMargin, :RequirementActor, :RequirementTopic, :RequirementCategory, :RequirementReference ;
+	sh:property :RequirementText, :RequirementBindingness, :RequirementPerformance, :RequirementCondition, :RequirementMainVerb, :RequirementMargin, :RequirementActor, :RequirementTopic, :RequirementCategory, :RequirementReference ;
 	.
 
 :Actor rdf:type rdfs:Class, sh:NodeShape ;
