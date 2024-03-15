@@ -234,17 +234,13 @@
               Robert Matousek, Rik, Redmer Kronemeijer, Herman Drenth, Jos Hebing<br/>
           </dd>
           <dt>Date</dt>
-          <dd>26 October 2023</dd>		  
+          <dd>14 March 2024</dd>		  
 		  <!--
           <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor">Contributor</a>(s)</dt>
           <dd>None</dd>
 		  -->
           <dt>Current version</dt>
-          <dd>1.0</dd>
-		  <!--
-          <dt>Version URI</dt>
-          <dd><a href="https://specified.ai/ontologies/spec/1.0">1.0</a></dd>
-		  -->
+          <dd>1.1</dd>
           <dt>Source</dt>
           <dd><a href="http://purl.org/nen/spec">RDF (XML)</a></dd>
           <dt>License</dt>
@@ -295,7 +291,7 @@
   <section id="overview">
       <h2>Overview</h2>
       <div class="figure">
-          <div><img src="img/model.drawio.png" /></div>
+          <div><img src="img/spec-ontology-overview.drawio.png" /></div>
           <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
       </div>
   </section>
@@ -303,12 +299,11 @@
     <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
 		<!--<li><a href="http://purl.org/spar/doco/Figure">doco:Figure</a></li>-->
-		<li><a href="#Actor">actor</a></li>
 		<li><a href="#Bindingness">bindingness</a></li>
 		<li><a href="#Category">category</a></li>
 		<li><a href="#Condition">condition</a></li>
+        <li><a href="#Container">container</a></li>
 		<li><a href="#ContentMathML">content math ml</a></li>
-		<li><a href="#Environment">environment</a></li>
 		<li><a href="#Latex">latex</a></li>		
 		<li><a href="#MainVerb">main verb</a></li>
 		<li><a href="#Margin">margin of error</a></li>		
@@ -325,12 +320,9 @@
 		//-->
 		<li><a href="#Requirement">requirement</a></li>
 		<li><a href="#Performance">performance</a></li>
-		<li><a href="#Project">project</a></li>
-		<li><a href="#Stakeholder">stakeholder</a></li>
 		<li><a href="#Statement">statement</a></li>
 		<li><a href="#StrictMathML">strict content math ml</a></li>
 		<li><a href="#System">system</a></li>		
-		<li><a href="#Topic">topic</a></li>
 	</ul>
 	<!--//
 	<h3>Bindingness</h3>
@@ -393,23 +385,6 @@
     </div>
 	//-->
 
-    <div class="entity concept" id="Actor">
-        <h3>actor<sup title="Concept" class="sup-cp">cl</sup></h3>
-		<h4>actor (en), acteur (nl)</h4>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>http://purl.org/nen/spec/Actor</code></td>
-            </tr>
-            <tr>
-                <th>Definition</th>
-                <td>
-                    For whom or what the service should be provided or the thing acted upon.<br/><br/>
-					Voor wie of wat de dienst moet worden geleverd of het ding waarop moet worden gehandeld.
-                </td>
-            </tr>
-        </table>
-    </div>
     <div class="entity concept" id="Bindingness">
         <h3>bindingness<sup title="Concept" class="sup-cp">cl</sup></h3>
 		<h4>bindingness (en), bindendheid (nl)</h4>
@@ -471,6 +446,29 @@
             </tr>
         </table>
     </div>
+    <div class="entity concept" id="Container">
+        <h3>container<sup title="Concept" class="sup-cp">cl</sup></h3>
+            <h4>unordered (requirement) container (en), ongesorteerde (eis) container (nl)</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/Container</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The class of unordered (requirement) containers.<br/><br/>
+					De klasse van ongesorteerde (eis) containers.
+                </td>
+            </tr>
+            <tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag">rdf:Bag</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>	
+        </table>
+    </div>
     <div class="entity concept" id="ContentMathML">
         <h3>content math ml<sup title="ContentMathML" class="sup-cp">cl</sup></h3>
 		<h4>Content MathML</h4>
@@ -494,30 +492,7 @@
             </tr>			
         </table>
     </div>	
-    <div class="entity concept" id="Environment">
-        <h3>environment<sup title="Concept" class="sup-cp">cl</sup></h3>
-		<h4>environment (en), omgeving (nl)</h4>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>http://purl.org/nen/spec/Environment</code></td>
-            </tr>
-            <tr>
-                <th>Definition</th>
-                <td>
-                    An environment for a project or system is the set of entities (people, organizations, regulations, devices and other material objects, other systems) external to the project or system but with the potential to affect it or be affected by it.<br/><br/>
-					Een omgeving voor een project of systeem is het geheel van entiteiten (mensen, organisaties, voorschriften, apparaten en andere materiële objecten, andere systemen) buiten het project of systeem, maar met het potentieel om het te beïnvloeden of erdoor beïnvloed te worden.
-                </td>
-            </tr>
-            <tr>
-                <th>Parent class</th>
-                <td>
-                    <a href="#Topic">topic</a><sup class="sup-cp" title="concept">cl</sup><br/>
-                </td>
-            </tr>
-        </table>
-    </div>
-	<!--//
+   	<!--//
     <div class="entity concept" id="Function">
         <h3>Function<sup title="Concept" class="sup-cp">cl</sup></h3>
 		<h4>Function (en), Functie (nl)</h4>
@@ -689,30 +664,7 @@
 			//-->
         </table>
     </div>
-    <div class="entity concept" id="Project">
-        <h3>project<sup title="Concept" class="sup-cp">cl</sup></h3>
-		<h4>project</h4>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>http://purl.org/nen/spec/Project</code></td>
-            </tr>
-            <tr>
-                <th>Definition</th>
-                <td>
-                    A project is the set of human processes involved in the planning, construction, revision and operation of a system.<br/><br/>
-					Een project is het geheel van menselijke processen die betrokken zijn bij de planning, constructie, herziening en werking van een systeem.
-                </td>
-            </tr>
-            <tr>
-                <th>Parent class</th>
-                <td>
-                    <a href="#Topic">topic</a><sup class="sup-cp" title="concept">cl</sup><br/>
-                </td>
-            </tr>
-        </table>
-    </div>
-	<!--//
+   	<!--//
     <div class="entity concept" id="Property">
         <h3>property<sup title="Concept" class="sup-cp">cl</sup></h3>
 		<h4>property (en), eigenschap (nl)</h4>
@@ -877,44 +829,19 @@
             <tr>
                 <th>Definition</th>
                 <td>
-                    The specific system (set of related artifacts) or object that shall deliver the required performance.<br/><br/>
-					Het specifieke systeem (set gerelateerde artefacten) of object dat de vereiste prestatie moet leveren.
+                    That which delivers the required performance.<br/><br/>
+					Hetgeen dat de vereiste prestatie levert.
                 </td>
             </tr>
             <tr>
-                <th>Parent class</th>
+                <th>Equivalent class</th>
                 <td>
-                    <a href="#Topic">topic</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    <a href="https://nl-digigo.github.io/nen2660/def#TopConcept">nen2660:TopConcept</a><sup class="sup-cp" title="concept">cl</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
-    <div class="entity concept" id="Topic">
-        <h3>topic<sup title="Concept" class="sup-cp">cl</sup></h3>
-		<h4>subject (en), onderwerp (nl)</h4>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>http://purl.org/nen/spec/Topic</code></td>
-            </tr>
-            <tr>
-                <th>Definition</th>
-                <td>
-                    The subject of the requirement.<br/><br/>
-					Het onderwerp van de eis.
-                </td>
-            </tr>
-            <tr>
-                <th>Subclasses</th>
-                <td>
-                    <a href="#System">system</a><sup class="sup-cp" title="concept">cl</sup><br/>
-                    <a href="#Project">project</a><sup class="sup-cp" title="concept">cl</sup><br/>
-                    <a href="#Environment">environment</a><sup class="sup-cp" title="concept">cl</sup><br/>
-                </td>
-            </tr>
-        </table>
-    </div>		
-</section>
+ </section>
 
 
 <section id="objectproperties">
@@ -925,7 +852,7 @@
 		<li><a href="#hasCondition">has condition</a></li>	
 		<li><a href="#hasPerformance">has performance</a></li>
 		<li><a href="#hasStakeholder">has stakeholder</a></li>
-		<li><a href="#hasTopic">has topic</a></li>
+		<li><a href="#performanceProvider">performance provider</a></li>
 		<li><a href="#isDerivedFrom">is derived from</a></li>
 		<li><a href="#refersTo">refers to</a></li>
 	</ul>
@@ -979,13 +906,13 @@
             </tr>
         </tbody></table>
     </div>
-    <div class="entity" id="hasTopic">
-        <h3>has topic<sup title="object property" class="type-op">op</sup></h3>
-            <h4>has topic (en), heeft als onderwerp (nl)</h4>
+    <div class="entity" id="performanceProvider">
+        <h3>performance provider<sup title="object property" class="type-op">op</sup></h3>
+            <h4>has performance provider (en), heeft performance provider (nl)</h4>
         <table>
             <tbody><tr>
                 <th>URI</th>
-                <td><code>http://purl.org/nen/spec/hasTopic</code></td>
+                <td><code>http://purl.org/nen/spec/performanceProvider</code></td>
             </tr>
         </tbody></table>
     </div>
