@@ -16,10 +16,10 @@
 
 
 <http://purl.org/nen/spec> rdf:type owl:Ontology ;
-    owl:versionInfo "1.1"^^xsd:string ;
+    owl:versionInfo "1.0"^^xsd:string ;
     dc:creator "Robert Matousek"^^xsd:string ;
 	dc:contributor <https://rdmr.eu/>, <https://rix.fyi/> ;
-    dc:date "2024-03-14" ;
+    dc:date "2023-03-24" ;
     dc:title "Specifications Ontology"@en ;
     dc:description "The Specifications Ontology is a formal and structured representation of knowledge that defines concepts, relationships, and properties of requirements. It serves as a shared vocabulary or framework for describing and organizing requirements in a way that computers can understand and process, also known as machine-readable requirements."@en ;               
     rdfs:comment 
@@ -51,14 +51,15 @@
 		"A requirement is a specification of a property of a project, system or environment."@en,
 		"Een eis is een specificatie van een eigenschap van een project, systeem of omgeving."@nl ;
 	frbr:embodiment	doco:Sentence ;
-	sh:property :RequirementText, :RequirementBindingness, :RequirementPerformance, :RequirementCondition, :RequirementMainVerb, :RequirementMargin, :RequirementSystem, :RequirementCategory, :RequirementReference ;
+	sh:property :RequirementText, :RequirementContainer, :RequirementBindingness, :RequirementPerformance, :RequirementCondition, :RequirementMainVerb, :RequirementMargin, :RequirementActor, :RequirementTopic, :RequirementCategory, :RequirementReference ;
 	.
 
-:Container a rdfs:Class, sh:NodeShape ;
-	rdfs:subClassOf	rdf:Bag ;
-	rdfs:label "Unordered (requirement) container"@en, "Ongesorteerde (eis) container"@nl ;
-	rdfs:comment "The class of unordered (requirement) containers."@en, "De klasse van ongesorteerde (eis) containers."@nl ;
-	sh:property :RequirementContainer ;
+:Actor rdf:type rdfs:Class, sh:NodeShape ;
+	rdfs:label "Actor"@en ,"Actor"@nl ;
+	rdfs:comment 
+		"For whom or what the service should be provided or the thing acted upon."@en, 
+		"Voor wie of wat de dienst moet worden geleverd of het ding waarop moet worden gehandeld."@nl ;
+	sh:property :ActorValue ;
 	.
 
 :Bindingness rdf:type rdfs:Class, sh:NodeShape ;
@@ -86,6 +87,13 @@
 	sh:property :ConditionValue ;
 	.
 
+:Environment rdf:type rdfs:Class, sh:NodeShape ;
+		rdfs:subClassOf :Topic ;
+		rdfs:label "Environment"@en ,"Omgeving"@nl ;
+		rdfs:comment "An environment for a project or system is the set of entities (people, organizations, regulations, devices and other material objects, other systems) external to the project or system but with the potential to affect it or be affected by it."@en, 
+			"Een omgeving voor een project of systeem is het geheel van entiteiten (mensen, organisaties, voorschriften, apparaten en andere materiële objecten, andere systemen) buiten het project of systeem, maar met het potentieel om het te beïnvloeden of erdoor beïnvloed te worden."@nl ;
+	.
+
 :MainVerb rdf:type rdfs:Class, sh:NodeShape ;
 	rdfs:label "Main verb"@en ,"Hoofd werkwoord"@nl ;
 	rdfs:comment "The action, occurrence, or a state of being."@en , "De actie, gebeurtenis of een staat van zijn."@nl ;
@@ -105,15 +113,40 @@
 	sh:property :PerformanceValue ;
 	.
 
+:Project rdf:type rdfs:Class, sh:NodeShape ;
+		rdfs:subClassOf :Topic ;
+		rdfs:label "Project"@en ,"Project"@nl ;
+		rdfs:comment "A project is the set of human processes involved in the planning, construction, revision and operation of a system."@en, 
+			"Een project is het geheel van menselijke processen die betrokken zijn bij de planning, constructie, herziening en werking van een systeem."@nl ;
+		sh:property :ProjectStakeholder ;
+	.
+
+:Stakeholder rdf:type rdfs:Class, sh:NodeShape ;
+		rdfs:label "Stakeholder"@en ,"Stakeholder"@nl ;
+		rdfs:comment "A stakeholder for a project is an (internal) entity who may affect or be affected by the project or its associated system."@en, 
+			"Een belanghebbende voor een project is een (interne) entiteit die invloed kan hebben op of kan worden beïnvloed door het project of het bijbehorende systeem."@nl ;
+	.
+
 :System rdf:type rdfs:Class, sh:NodeShape ;
 		rdfs:subClassOf :Topic ;
 		rdfs:label "System"@en ,"Systeem"@nl ;
-		rdfs:comment "That which delivers the required performance."@en, 
-			"Hetgeen dat de vereiste prestatie levert."@nl ;
-		owl:equivalentClass nen2660:TopConcept ;
+		rdfs:comment "The specific system (set of related artifacts) or object that shall deliver the required performance."@en, 
+			"Het specifieke systeem (set gerelateerde artefacten) of object dat de vereiste prestatie moet leveren."@nl ;
+	.
+
+:Topic rdf:type rdfs:Class, sh:NodeShape ;
+	rdfs:label "Subject"@en ,"Onderwerp"@nl ;
+	rdfs:comment "The subject of the requirement."@en, 
+		"Het onderwerp van de eis."@nl ;
+	owl:equivalentClass nen2660:TopConcept ;
+	sh:property :TopicValue ;
 	.
 
 # PROPERTIES / RELATIONS
+
+:hasActor rdf:type owl:DataProperty ;
+	rdfs:label "has actor"@en, "heeft actor"@nl ;
+	.
 
 :hasBindingness rdf:type owl:ObjectProperty ;
 	rdfs:label "has bindingness"@en, "heeft bindendheid"@nl ;
@@ -135,10 +168,6 @@
 	rdfs:label "has margin"@en, "heeft foutmarge"@nl ;
 	.
 
-rdfs:member a rdf:Property ;
-	rdfs:label "member"@en, "lid"@nl ;
-	.
-
 :OR rdf:type owl:ObjectProperty ;
     rdfs:label "union of requirements, e.g. A or B is required"@en ;
 	rdfs:comment "If 2 or more spec:Requirement come from 1 spec:Statement, 'AND' is implicit. Only when there is an 'or' in the spec:Statement should the OR operator be used."@en , "Als 2 of meer spec:Requirement uit 1 spec:Statement komen, is 'AND' impliciet. Alleen als er een 'or' in de spec:Statement staat, moet de OR-operator worden gebruikt."@nl ;
@@ -148,8 +177,12 @@ rdfs:member a rdf:Property ;
 	rdfs:label "has performance"@en, "heeft prestatie"@nl ;
 	.
 
-:performanceProvider rdf:type owl:ObjectProperty ;
-	rdfs:label "has performance provider"@en, "heeft performance provider"@nl ;
+:hasStakeholder rdf:type owl:DataProperty ;
+	rdfs:label "has stakeholder"@en, "heeft belanghebbende"@nl ;
+	.
+
+:hasTopic rdf:type owl:ObjectProperty ;
+	rdfs:label "has topic"@en, "heeft als onderwerp"@nl ;
 	rdfs:subPropertyOf dc:subject ;
 	.
 
@@ -167,8 +200,6 @@ rdfs:member a rdf:Property ;
 
 :StatementText rdf:type sh:PropertyShape ;
 	rdfs:comment "This corrensponds somewhat to the 'type'. In the context of this ontology natural language expressions are to be expected. In the case of a diagram or figure the class shouldn't be doco:TextChunk but another corresponding class from DOCO."@en ;
-	sh:name "StatementText"@en ;
-	sh:description	"Validation shape for the relation between a Statement and its Text"@en ;
 	sh:path frbr:embodiment ;
 	sh:class doco:TextChunk ;
 	sh:maxCount 1 ;
@@ -178,8 +209,6 @@ rdfs:member a rdf:Property ;
 	rdfs:comment 
 		"A statement (piece of text) can refer to another piece of text. Either implicit or explicit."@en,
 		"Een statement (stuk tekst) kan verwijzen naar een ander stuk tekst. Impliciet of expliciet."@nl ;
-	sh:name "StatementReference"@en ;
-	sh:description	"Validation shape for the relation between a Requirement and its Reference"@en ;	
 	sh:path :refersTo ;
 	sh:class :Statement ;
 	.
@@ -188,123 +217,99 @@ rdfs:member a rdf:Property ;
 	rdfs:comment 
 		"The sentence of a requirement is an optional and virtual representation in natural language which can be derived from the resources related to the requirement."@en,
 		"De zin van een vereiste is een optionele en virtuele weergave in natuurlijke taal die kan worden afgeleid uit de bronnen die verband houden met de vereiste."@nl ;		
-	sh:name "RequirementText"@en ;
-	sh:description	"Validation shape for the relation between a Requirement and its Text"@en ;
     sh:path frbr:embodiment ;
     sh:class doco:Sentence ;
 	sh:maxCount 1 ;
     .
 
 :RequirementStatement rdf:type sh:PropertyShape ;
-	sh:name "RequirementStatement"@en ;
-	sh:description	"Validation shape for the relation between a Requirement and a Statement"@en ;
     sh:path :isDerivedFrom ;
     sh:class :Statement ;
     .
 
 :RequirementBindingness rdf:type sh:PropertyShape ;
-	sh:name "RequirementBindingness"@en ;
-	sh:description	"Validation shape for the relation between a Requirement and its Bindingess"@en ;
 	sh:path :hasBindingness ;
 	sh:class :Bindingness ;
 	sh:maxCount 1 ;
 	.
 
 :RequirementPerformance rdf:type sh:PropertyShape ;
-	sh:name "RequirementPerformance"@en ;
-	sh:description	"Validation shape for the relation between a Requirement and its Performance"@en ;
 	sh:path :hasPerformance ;
 	sh:class :Performance ;
 	.
 
 :RequirementCondition rdf:type sh:PropertyShape ;
-	sh:name "RequirementCondition"@en ;
-	sh:description	"Validation shape for the relation between a Requirement and its Condition"@en ;
 	sh:path :hasCondition ;
 	sh:class :Condition ;
 	.
 
 :RequirementMainVerb rdf:type sh:PropertyShape ;
-	sh:name "RequirementMainVerb"@en ;
-	sh:description	"Validation shape for the relation between a Requirement and its MainVerb"@en ;
 	sh:path :hasMainVerb ;
 	sh:class :MainVerb ;
 	.
 
 :RequirementMargin rdf:type sh:PropertyShape ;
-	sh:name "RequirementMargin"@en ;
-	sh:description	"Validation shape for the relation between a Requirement and its Margin"@en ;
 	sh:path :hasMargin ;
 	sh:class :Margin ;
 	.
 
-:RequirementSystem rdf:type sh:PropertyShape ;
-	sh:name "RequirementSystem"@en ;
-	sh:description	"Validation shape for the relation between a Requirement and performance providing System"@en ;
+:RequirementActor rdf:type sh:PropertyShape ;
+	sh:path :hasActor ;
+	sh:class :Actor ;
+	.
+
+:RequirementTopic rdf:type sh:PropertyShape ;
 	sh:path :hasTopic ;
 	sh:class :Topic ;
 	.
 
 :RequirementCategory rdf:type sh:PropertyShape ;
-	sh:name "RequirementCategory"@en ;
-	sh:description	"Validation shape for the relation between a Requirement and its Category"@en ;
 	sh:path :hasCategory ;
 	sh:class :Category ;
 	sh:maxCount 1 ;
 	.
 
 :RequirementReference rdf:type sh:PropertyShape ;
-	sh:name "RequirementReference"@en ;
-	sh:description	"Validation shape for the relation between a Requirement and its Rereference"@en ;
 	sh:path :refersTo ;
 	sh:or ( [ sh:class doco:Figure ] [ sh:class doco:Table ] [ sh:class doco:List ] [ sh:class doco:Formula ] )
 	.
 
+:ActorValue rdf:type sh:PropertyShape ;
+	sh:path	rdf:value ;
+	sh:datatype xsd:string ;
+	.
+
 :ConditionValue rdf:type sh:PropertyShape ;
-	sh:name "ConditionValue"@en ;
-	sh:description	"Validation shape for the relation between a Condition and its Value"@en ;
 	sh:path	rdf:value ;
 	sh:datatype xsd:string ;
 	.
 
 :MainVerbValue rdf:type sh:PropertyShape ;
-	sh:name "MainVerbValue"@en ;
-	sh:description	"Validation shape for the relation between a MainVerb and its Value"@en ; ;
 	sh:path	rdf:value ;
 	sh:datatype xsd:string ;
 	.
 
 :MarginValue rdf:type sh:PropertyShape ;
-	sh:name "ConditionValue"@en ;
-	sh:description	"Validation shape for the relation between a Margin and its Value"@en ;
 	sh:path	rdf:value ;
 	sh:datatype xsd:string ;
 	.
 
 :orStatement rdf:type sh:PropertyShape ;
-	sh:name "orStatement"@en ;
-	sh:description	"Validation shape for the OR relation between two or more Requiremnts"@en ;
     sh:path :OR ;
     sh:class :Requirement ;
     .
 
 :PerformanceValue rdf:type sh:PropertyShape ;
-	sh:name "PerformanceValue"@en ;
-	sh:description	"Validation shape for the relation between a Performance and its Value"@en ;
 	sh:path	rdf:value ;
 	sh:datatype xsd:string ;
 	.
 
-:SystemValue rdf:type sh:PropertyShape ;
-	sh:name "SystemValue"@en ;
-	sh:description	"Validation shape for the relation between a System and its Value"@en ;
-	sh:path	rdf:value ;
-	sh:datatype xsd:string ;
+:ProjectStakeholder rdf:type sh:PropertyShape ;
+    sh:path :hasStakeholder ;
+    sh:class :Stakeholder ;
 	.
 
-:RequirementContainer rdf:type sh:PropertyShape ;
-	sh:name "RequirementContainer"@en ;
-	sh:description	"Validation shape for the relation between a Container and its members"@en ;
-	sh:path rdfs:member ;
-	sh:or ( [ sh:class rdf:Bag ] [ sh:class :Requirement ] ) ;
+:TopicValue rdf:type sh:PropertyShape ;
+	sh:path	rdf:value ;
+	sh:datatype xsd:string ;
 	.
