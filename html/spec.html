@@ -121,8 +121,10 @@
   <section id="classes">
     <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
-		<!--<li><a href="http://purl.org/spar/doco/Figure">doco:Figure</a></li>-->
-		<li><a href="#Bindingness">bindingness</a></li>
+		<li><a href="#Aspect">aspect</a></li>
+        <li><a href="#AspectUoM">aspect UoM</a></li>
+        <li><a href="#AspectValue">aspect value</a></li>
+        <li><a href="#Bindingness">bindingness</a></li>
 		<li><a href="#Category">category</a></li>
 		<li><a href="#Condition">condition</a></li>
         <li><a href="#Container">container</a></li>
@@ -133,72 +135,59 @@
 		<li><a href="#Requirement">requirement</a></li>
 		<li><a href="#Performance">performance</a></li>
 		<li><a href="#Statement">statement</a></li>
-<!--
-		<li><a href="#StrictMathML">strict content math ml</a></li>
-//-->
 		<li><a href="#System">system</a></li>		
 	</ul>
-	<!--//
-	<h3>Bindingness</h3>
-	<ul class="hlist">
-		<li><a href="#Must">must</a></li>
-		<li><a href="#MustNot">must not</a></li>
-		<li><a href="#Should">should</a></li>
-		<li><a href="#ShouldNot">should not</a></li>
-		<li><a href="#May">may</a></li>
-	</ul>
-
-	<h3>Topics</h3>
-	<ul class="hlist">
-		<li><a href="#Environment">environment</a></li>
-		<li><a href="#Project">project</a></li>
-		<li><a href="#System">system</a></li>
-	</ul>
-    <div class="entity concept" id="figure">
-        <h3>figure<sup title="Concept" class="sup-cp">cp</sup></h3>
-            <h4>
-              figuur (nl)
-              , 
-              figure (en)
-              
-            </h4>
+    <div class="entity concept" id="Aspect">
+        <h3>aspect<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>aspect (en), aspect (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>http://purl.org/spar/doco/Figure</code></td>
+                <td><code>http://purl.org/nen/spec/Aspect</code></td>
             </tr>
             <tr>
                 <th>Definition</th>
                 <td>
-                    Een visueel communicatieobject bestaande uit een of meer stilstaande beelden over een verwant thema.  Als een figuur in een publicatie wordt opgenomen, is hij gewoonlijk niet uitgelijnd met de hoofdtekst en heeft hij zijn eigen beschrijvende tekstuele figuurlegende.<br/>
-                    A visual communication object comprising one or more still images on a related theme.  If included within a publication, a figure is typically unaligned with the main body of text, having its own descriptive textual figure legend.<br/>
+                    Qualitative or quantitative characteristic of a system.<br/><br/>
+                    Kwalitatief of kwantitatief kenmerk van een systeem.
                 </td>
             </tr>
         </table>
     </div>
-    <div class="entity concept" id="Activity">
-        <h3>Activiteit<sup title="Concept" class="sup-cp">cl</sup></h3>
-            <h4>
-              Activity (en)
-              , 
-              Activiteit (nl)
-              
-            </h4>
+    <div class="entity concept" id="AspectUoM">
+        <h3>aspect UoM <sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>aspect unit of measure (en), aspect meeteenheid (nl)</h4>
         <table>
             <tr>
                 <th>URI</th>
-                <td><code>http://purl.org/nen/spec/Activity</code></td>
+                <td><code>http://purl.org/nen/spec/AspectUoM</code></td>
             </tr>
             <tr>
-                <th>Parent class</th>
+                <th>Definition</th>
                 <td>
-                    <a href="#Performance">Performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
+                    A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind.<br/><br/>
+                    Een meeteenheid, of eenheid, is een bepaalde waarde van een hoeveelheid die is gekozen als schaal voor het meten van andere hoeveelheden van dezelfde soort..
                 </td>
             </tr>
         </table>
     </div>
-	//-->
-
+    <div class="entity concept" id="AspectValue">
+        <h3>aspect value<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>value of aspect (en), waarde van aspect (nl)</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/AspectValue</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    Actual value of an aspect.<br/><br/>
+                    Daadwerkelijke waarde van een aspect.
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity concept" id="Bindingness">
         <h3>bindingness<sup title="Concept" class="sup-cp">cl</sup></h3>
 		<h4>bindingness (en), bindendheid (nl)</h4>
@@ -306,24 +295,6 @@
             </tr>			
         </table>
     </div>	
-   	<!--//
-    <div class="entity concept" id="Function">
-        <h3>Function<sup title="Concept" class="sup-cp">cl</sup></h3>
-		<h4>Function (en), Functie (nl)</h4>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>http://purl.org/nen/spec/Function</code></td>
-            </tr>
-            <tr>
-                <th>Parent class</th>
-                <td>
-                    <a href="#Performance">performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
-                </td>
-            </tr>
-        </table>
-    </div>
-	//-->
     <div class="entity concept" id="Latex">
         <h3>latex<sup title="Latex" class="sup-cp">cl</sup></h3>
 		<h4>LaTex</h4>
@@ -398,40 +369,6 @@
             </tr>
         </table>
     </div>
-   	<!--//
-    <div class="entity concept" id="Property">
-        <h3>property<sup title="Concept" class="sup-cp">cl</sup></h3>
-		<h4>property (en), eigenschap (nl)</h4>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>http://purl.org/nen/spec/Property</code></td>
-            </tr>
-            <tr>
-                <th>Parent class</th>
-                <td>
-                    <a href="#Performance">performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="entity concept" id="Reference">
-        <h3>Reference<sup title="Concept" class="sup-cp">cl</sup></h3>\
-		<h4>reference (en), verwijzing (nl)</h4>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>http://purl.org/nen/spec/Reference</code></td>
-            </tr>
-            <tr>
-                <th>Parent class</th>
-                <td>
-                    <a href="#Performance">performance</a><sup class="sup-cp" title="concept">cl</sup><br/>
-                </td>
-            </tr>
-        </table>
-    </div>
-	//-->
     <div class="entity concept" id="Requirement">
         <h3>requirement<sup title="Concept" class="sup-cp">cl</sup></h3>
 		<h4>requirement (en), eis (nl)</h4>
@@ -512,7 +449,10 @@
 <section id="objectproperties">
     <h2>Object properties <span style="float:right; font-size:smaller;"><a href="">↑</a></span></h2>
     <ul class="hlist">
-		<li><a href="#hasBindingness">has bindingness</a></li>
+		<li><a href="#hasAspect">has aspect</a></li>
+        <li><a href="#hasAspectUoM">has aspect UoM</a></li>
+        <li><a href="#hasAspectValue">has aspect value</a></li>
+        <li><a href="#hasBindingness">has bindingness</a></li>
 		<li><a href="#hasCategory">has category</a></li>
 		<li><a href="#hasCondition">has condition</a></li>	
 		<li><a href="#hasPerformance">has performance</a></li>
@@ -521,6 +461,36 @@
 		<li><a href="#isDerivedFrom">is derived from</a></li>
 		<li><a href="#refersTo">refers to</a></li>
 	</ul>
+    <div class="entity" id="hasAspect">
+        <h3>has aspect<sup title="object property" class="type-op">op</sup></h3>
+            <h4>has aspect (en), heeft aspect (nl)</h4>
+        <table>
+            <tbody><tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/hasAspect</code></td>
+            </tr>
+        </tbody></table>
+    </div>
+    <div class="entity" id="hasAspectUoM">
+        <h3>has aspect UoM<sup title="object property" class="type-op">op</sup></h3>
+            <h4>has aspect unit of measure (en), heeft aspect meeteenheid (nl)</h4>
+        <table>
+            <tbody><tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/hasAspectUoM</code></td>
+            </tr>
+        </tbody></table>
+    </div>
+    <div class="entity" id="hasAspectValue">
+        <h3>has aspect value<sup title="object property" class="type-op">op</sup></h3>
+            <h4>has aspect value (en), heeft aspect waarde (nl)</h4>
+        <table>
+            <tbody><tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/hasAspectValue</code></td>
+            </tr>
+        </tbody></table>
+    </div>
     <div class="entity" id="hasBindingness">
         <h3>has bindingness<sup title="object property" class="type-op">op</sup></h3>
             <h4>has bindingness (en), heeft bindendheid (nl)</h4>
@@ -663,7 +633,7 @@
 		<dd>Jureta, I., Mylopoulos, J., Faulkner, S., <cite>A core ontology for requirements</cite> In: Applied Ontology, 4(3-4), pp.169-244. DOI: 10.3233/AO-2009-0069</dd>		
 		<dt id="bib-GORO">[GORO]</dt>
 		<dd>Bernabé, C.H., Silva Souza, V.E., Almeida Falbo, R.d., Guizzardi, R.S.S., Silva, C. (2019). <cite>GORO 2.0: Evolving an Ontology for Goal-Oriented Requirements Engineering.</cite> In: Guizzardi, G., Gailly, F., Suzana Pitangueira Maciel, R. (eds) Advances in Conceptual Modeling. ER 2019. Lecture Notes in Computer Science, vol 11787. Springer, Cham. <a href="https://doi.org/10.1007/978-3-030-34146-6_15">https://doi.org/10.1007/978-3-030-34146-6_15</a></dd>
-		<dt id="bib-SPAR">[SPAR]</dt>
+        <dt id="bib-SPAR">[SPAR]</dt>
 		<dd>Peroni, S., Shotton, D., <cite>The SPAR Ontologies</cite>. 2018, In Proceedings of the 17th International Semantic Web Conference (ISWC 2018): 119-136. DOI: <a href="https://doi.org/10.1007/978-3-030-00668-6_8">https://doi.org/10.1007/978-3-030-00668-6_8</a></dd>
 		<dt id="bib-SPEC-BIND">[SPEC-BIND]</dt>
 		<dd>Matousek, R., et. al. <cite>Specification Bindingness Levels</cite>. 2023, URL: <a href="https://data.nen.nl/spec-bind/docs/">https://data.nen.nl/spec-bind/docs/</a></dd>

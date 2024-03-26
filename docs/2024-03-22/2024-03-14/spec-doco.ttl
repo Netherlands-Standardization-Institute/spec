@@ -1,0 +1,112 @@
+@prefix : <http://purl.org/nen/spec-doco/> .
+@prefix spec: <http://purl.org/nen/spec/> .
+@prefix spec-bind: <http://purl.org/nen/spec-bind/> .
+@prefix spec-cat: <http://purl.org/nen/spec-cat/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2008/05/skos#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix po: <http://purl.org/spar/po> .
+@prefix nen2660: <https://w3id.org/nen2660/def#> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix c4o: <http://purl.org/spar/c4o/>.
+
+#TODO: Uitwerken in volledige SKOS
+
+<http://purl.org/nen/spec-doco> rdf:type owl:Ontology ;
+    owl:versionInfo "1.0"^^xsd:string ;
+    dc:creator "Robert Matousek"^^xsd:string ;
+	dc:contributor <https://rdmr.eu/>, <https://rix.fyi/> ;
+    dc:date "2023-11-01" ;
+    dc:title "Specification DOCO References"@en ;
+    dc:description """The Specifications Ontology provides a structured vocabulary of technical specifications. This allows technical specifications to be described in RDF. The Specification DOCO References is an modulair add-on for specifying the classes for references for requirements': 
+                    Meyer, B., Bruel, JM., Ebersold, S., Galinier, F., Naumchev, A. (2019). Towards an Anatomy of Software Requirements. In: Mazzara, M., Bruel, JM., Meyer, B., Petrenko, A. (eds) Software Technology: Methods and Tools. TOOLS 2019. Lecture Notes in Computer Science(), vol 11771. Springer, Cham. https://doi.org/10.1007/978-3-030-29852-4_2"""@en ;               
+    rdfs:comment 
+        """The Specifications Ontology provides a structured vocabulary of technical specifications. This allows technical specifications to be described in RDF. The Specification DOCO References is an modulair add-on for specifying the classes for references for requirements'.
+        **URL:** https://specified.ai/ontologies/spec-cat/
+        **Creators**: Robert Matousek
+		**Contributors**: Rik (CROW), Redmer Kronemeijer
+        **License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+        **Website:** https://specified.ai
+        **Cite as:** Matousek, R. Kronemeijer, Rik (CROW). (2023). Specification DOCO References."""@en ,
+        "This ontology is available at https://specified.ai/ontologies/spec-doco/, and uses the namespace prefix spec-doco."@en ;
+    dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
+    rdfs:seealso <https://smart-researchteam.github.io/publication/dblp-conftools-0001-begn-19/>, <https://link.springer.com/chapter/10.1007/978-3-030-29852-4_2>;
+    owl:imports <http://purl.org/nen/spec/> ;
+	.
+
+# FORMULAS
+
+:FormulaShape rdf:type sh:NodeShape ;
+    sh:targetClass doco:Formula ;
+    sh:property :FormulaContent ;
+    .
+
+:FormulaContent rdf:type sh:PropertyShape ;
+    sh:path c4o:hasContent ;
+    sh:xone ([sh:datatype :Latex][sh:datatype :StrictContentMathML][sh:datatype :ContentMathML]) ;
+    .
+
+:Latex rdf:type rdfs:Datatype ;
+	rdfs:subClassOf rdfs:Literal ;
+	rdfs:label "Latex Formula"@en ,"Latex Formule"@nl ;
+	.
+
+:ContentMathML rdf:type rdfs:Datatype ;
+	rdfs:subClassOf rdfs:Literal ;
+	rdfs:label "Content MathML Formula"@en ,"Content MathML Formule"@nl ;
+	.
+
+:StrictContentMathML rdf:type rdfs:Datatype ;
+	rdfs:subClassOf :ContentMathML ;
+	rdfs:label "Strict MathML Formula"@en ,"Strict MathML Formule"@nl ;
+	.
+
+# LISTS
+
+:ListShape rdf:type sh:NodeShape ;
+    sh:targetClass doco:List ;
+    sh:property :ListContent ;
+    .
+
+:ListContent rdf:type sh:PropertyShape ;
+    sh:path c4o:hasContent ;
+    sh:xone ([sh:datatype rdf:HTML][sh:datatype rdf:MARKDOWN]) ;
+    .
+
+# TEXT
+
+doco:Sentence rdf:type sh:NodeShape ;
+    sh:property :SentenceValue ;
+    .
+
+:SentenceValue rdf:type sh:PropertyShape ;
+	sh:path	rdf:value ;
+	sh:datatype xsd:string ;
+	.
+
+doco:TextChunk rdf:type sh:NodeShape ;
+    sh:property :TextValue ;
+    .
+
+:TextValue rdf:type sh:PropertyShape ;
+	sh:path	rdf:value ;
+	sh:datatype xsd:string ;
+	.
+
+
+# TABLES
+
+:TableShape rdf:type sh:NodeShape ;
+    sh:targetClass doco:Table ;
+    sh:property :TableContent ;
+    .
+
+:TableContent rdf:type sh:PropertyShape ;
+    sh:path c4o:hasContent ;
+    sh:xone ([sh:datatype rdf:HTML][sh:datatype rdf:MARKDOWN]) ;
+    .
