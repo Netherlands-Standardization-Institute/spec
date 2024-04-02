@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Specifications Ontology</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+	<link rel="stylesheet" href="css/style.css">
+    
+    <script type="application/ld+json">
+      [
+  {
+    "@id": "http://purl.org/nen/spec-doco",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/description": [
+      {
+        "@value": "<p>Serialization formats of document components.</p>"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "Specification Content Types"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body>
+
+<div id="div-hd" class="head">
+<a href="http://www.w3.org/"><img height="72" width="72" alt="SPEC ontology" src="img/logo-spec.png"/></a> 
+</div>
+  <h1>Specification Content Types</h1>
+<h3><em>Serialization formats of document components</em></h3>
+  <section id="conceptscheme">
+      <h2 style="display:none;">Concept Scheme</h2>
+      <dl>
+          <dt>URI</dt>
+          <dd><code>http://purl.org/nen/spec</code></dd>
+            <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
+          <dd>
+              Robert Matousek, Rik, Redmer Kronemeijer, Herman Drenth, Jos Hebing<br/>
+          </dd>
+          <dt>Date</dt>
+          <dd>26 October 2023</dd>		  
+          <dt>Current version</dt>
+          <dd>1.0</dd>
+          <dt>Source</dt>
+          <dd><a href="http://purl.org/nen/spec">RDF (XML)</a></dd>
+          <dt>License</dt>
+          <dd><a href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International</a></dd>		  
+      </dl>
+      <h2>Abstract</h2>
+      <div id="description">
+          <p>Lorem ipsum dolor amet.</p>
+      </div>
+  </section>
+  <section id="toc">
+      <h2>Table of Contents</h2>
+      <ol>
+		  <li><a href="#intro">Introduction</a></li>	  
+		  <li><a href="#overview">Overview</a></li>
+          <li><a href="#classes">Classes</a></li>
+		  <li><a href="#objectproperties">Object properties</a></li>
+          <li><a href="#namespaces">Namespaces</a></li>
+          <li><a href="#legend">Legend</a></li>
+		  <li><a href="#references">References</a></li>
+      </ol>
+  </section>
+	<section id="intro">
+		<h2>Introduction</h2>
+		<div>
+			<p>The Specification Content Types extends the Document Components Ontology (DoCO) [<a class="citation" rel="citation" href="#bib-DOCO">DOCO</a>] to provide a structured vocabulary of components found in specifications and their serialization formats (e.g. formulas in LaTex or ContentMathML). It is part of the larger SPEC ontology. [<a class="citation" rel="citation" href="#bib-SPEC">SPEC</a>]</p>
+			<p>By specificying the serialization format machines know how a document component can be used or rendered. For example, ContentMathML can be used to render formulas but not for computation, unlike StrictMathML.</p>
+		</div>
+	</section>
+  <section id="overview">
+      <h2>Overview</h2>
+		<div>
+			<p>The current ontology supports a limited number of serialization formats for list, tables and formulas.</p>
+		</div>
+      <div class="figure">
+		  <div>
+			<table class="overview">
+				<caption>Serialization formats of document components</caption>
+				<thead>
+					<tr>
+					  <th scope="col">Document components</th>
+					  <th scope="col">Serialization formats</th>
+					  <th scope="col">Notes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td rowspan="2">List</td>
+						<td>HTML</td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>Markdown</td>
+						<td>&nbsp;</td>
+					</tr>					
+					<tr>
+						<td rowspan="2">Table</td>
+						<td>HTML</td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>Markdown</td>
+						<td>&nbsp;</td>
+					</tr>	
+					<tr>
+						<td rowspan="3">Formula</td>
+						<td>ContentMathML</td>
+						<td>Presentation markup</td>
+					</tr>
+					<tr>
+						<td><a href="https://en.wikipedia.org/wiki/LaTeX">LaTex<a/></td>
+						<td>&nbsp;</td>
+					</tr>						
+					<tr>
+						<td>StrictMathML</td>
+						<td>Content markup</td>
+					</tr>
+				</tbody>
+			</table>
+		  </div>	  
+          <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+      </div>
+  </section>
+  <section id="classes">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+		<li><a href="#ContentMathML">content math ml</a></li>
+		<li><a href="#Latex">latex</a></li>
+		<li><a href="#StrictMathML">strict content math ml</a></li>
+	</ul>
+    <div class="entity concept" id="ContentMathML">
+        <h3>content math ml<sup title="ContentMathML" class="sup-cp">cl</sup></h3>
+		<h4>Content MathML</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/ContentMathML</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A mathematical equation in Content MathML.<br/><br/>
+					Een wiskundige formule in Content MathML.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Datatype">rdfs:Datatype</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>			
+        </table>
+    </div>	
+    <div class="entity concept" id="Latex">
+        <h3>latex<sup title="Latex" class="sup-cp">cl</sup></h3>
+		<h4>LaTex</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/Latex</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A mathematical equation in LaTex.<br/><br/>
+					Een wiskundige formule in LaTex.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Datatype">rdfs:Datatype</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>		
+        </table>
+    </div>	
+    <div class="entity concept" id="StrictMathML">
+        <h3>strict content math ml<sup title="StrictMathML" class="sup-cp">cl</sup></h3>
+		<h4>Strict Content MathML</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec/StrictMathML</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    A mathematical equation in Strict Content MathML.<br/><br/>
+					Een wiskundige formule in Strict Content MathML.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Datatype">rdfs:Datatype</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>			
+        </table>
+    </div>	
+</section>
+
+
+<section id="objectproperties">
+    <h2>Object properties <span style="float:right; font-size:smaller;"><a href="">↑</a></span></h2>
+    <ul class="hlist">
+		<li><a href="#hasContent">has content</a></li>
+	</ul>
+    <div class="entity" id="hasContent">
+        <h3>has content<sup title="object property" class="type-op">op</sup></h3>
+            <h4>has content (en), heeft inhoud (nl)</h4>
+        <table>
+            <tbody><tr>
+                <th>URI</th>
+                <td><code>http://purl.org/spar/c4o/hasContent</code></td>
+            </tr>
+        </tbody></table>
+		<div class="description">
+			<dl>
+				<dt>has domain</dt>
+				<dd>
+					<a href="#d4e892" title="https://sparontologies.github.io/doco/current/doco.html#d4e1724">doco:Table</a><sup title="class" class="type-c">c</sup>
+					<a href="#d4e892" title="https://sparontologies.github.io/doco/current/doco.html#d4e1095">doco:List</a><sup title="class" class="type-c">c</sup>
+					<a href="#d4e892" title="https://sparontologies.github.io/doco/current/doco.html#d4e827">doco:Formula</a><sup title="class" class="type-c">c</sup>
+				</dd>
+				<dt>has range</dt>
+				<dd>
+					<a href="#d4e105" title="http://www.essepuntato.it/2008/12/pattern#isContainedBy">rdf:HTML</a><sup title="class" class="type-c">c</sup>
+					<a href="#d4e105" title="http://www.essepuntato.it/2008/12/pattern#isContainedBy">rdf:MARKDOWN</a><sup title="class" class="type-c">c</sup>
+					<a href="#d4e105" title="http://www.essepuntato.it/2008/12/pattern#isContainedBy">latex</a><sup title="class" class="type-c">c</sup>
+					<a href="#d4e105" title="http://www.essepuntato.it/2008/12/pattern#isContainedBy">content math ml</a><sup title="class" class="type-c">c</sup>
+					<a href="#d4e105" title="http://www.essepuntato.it/2008/12/pattern#isContainedBy">strict content math ml</a><sup title="class" class="type-c">c</sup>
+				</dd>
+			</dl>
+		</div>
+    </div>
+</section>
+
+  <section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt>:</dt>
+        <dd><code>http://purl.org/nen/spec-doco</code></dd>
+        <dt>c4o</dt>
+        <dd><code>http://purl.org/spar/c4o/</code></dd>
+        <dt>doco</dt>
+        <dd><code>http://purl.org/spar/doco/</code></dd>
+        <dt>rdf</dt>
+        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        <dt>rdfs</dt>
+        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>spec</dt>
+        <dd><code>http://purl.org/nen/spec</code></dd>
+    </dl>
+</section>
+
+  <section id="legend">
+    <h2>Legend</h2>
+	  <table class="entity">
+		  <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+		  <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+		  <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+		  <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+		  <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+		  <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+		  <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+	  </table>
+  </section>
+  
+<section id="references" style="text-align: left;">
+	<h2>References</h2> 
+	<dl class="bibliography">
+		<dt id="bib-DOCO">[DOCO]</dt>
+		<dd>Constantin, A., Peroni, S., Pettifer, S., Shotton, D., Vitali, F. (2016). <cite>The Document Components Ontology (DoCO). In Semantic Web, 7 (2): 167-181. DOI: </dd>	
+		<dt id="bib-SPEC">[SPEC]</dt>
+		<dd>Matousek, R., et. al. <cite>The Specifications Ontology</cite>. 2023, URL: <a href="https://data.nen.nl/spec-cat/docs/">https://data.nen.nl/spec/docs/</a></dd>	
+	</dl>
+</section>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Specification Bindingness Levels</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+	<link rel="stylesheet" href="css/style.css">
+    
+    <script type="application/ld+json">
+      [
+  {
+    "@id": "https://data.nen.nl/spec-bind",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/description": [
+      {
+        "@value": "<p>A controlled vocabulary of bindingness levels for requirements.</p>"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "Specifications Bindingness Levels"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body>
+
+<div id="div-hd" class="head">
+<a href="http://www.w3.org/"><img height="72" width="72" alt="SPEC ontology" src="https://data.nen.nl/spec-cat/docs/img/logo-spec.png"/></a> 
+</div>
+  <h1>Specification Bindingness Levels</h1>
+  <h3><em>A controlled vocabulary of bindingness levels</em></h3>
+  <section id="conceptscheme">
+      <h2 style="display:none;">Concept Scheme</h2>
+      <dl>
+          <dt>URI</dt>
+          <dd><code>http://purl.org/nen/spec-bind</code></dd>
+            <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
+          <dd>
+              Robert Matousek, Rik, Redmer Kronemeijer, Herman Drenth, Jos Hebing<br/>
+          </dd>
+          <dt>Date</dt>
+          <dd>23 August 2023</dd>		  
+          <dt>Current version</dt>
+          <dd>1.0</dd>
+          <dt>Source</dt>
+          <dd><a href="https://data.nen.nl/spec-cat/spec-cat.owl">RDF (XML)</a></dd>
+          <dt>License</dt>
+          <dd><a href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International</a></dd>		  
+      </dl>
+      <h2>Abstract</h2>
+      <div id="description">
+          <p>The Specification Bindingness Levels lists the key words used to indicate requirement levels as defined in RFC 2119. [<a class="citation" rel="citation" href="#bib-RFC">RFC 2119</a>]. It's part of the larger SPEC ontology. [<a class="citation" rel="citation" href="#bib-SPEC">SPEC</a>]</p>
+      </div>
+  </section>
+  <section id="toc">
+      <h2>Table of Contents</h2>
+      <ol>
+		  <li><a href="#intro">Introduction</a></li>	  
+		  <li><a href="#overview">Overview</a></li>
+          <li><a href="#concepts">Classes</a></li>
+          <li><a href="#namespaces">Namespaces</a></li>
+          <li><a href="#legend">Legend</a></li>
+		  <li><a href="#references">References</a></li>		  
+      </ol>
+  </section>
+	<section id="intro">
+		<h2>Introduction</h2>
+		<div>
+			<p>Several words are used to signify requirements in a specification. This ontology lists the key words used and how they should be interpreted.</p>
+			<!--//
+			<ul>
+				<li>MUST</li>
+				<li>MUST NOT</li>
+				<li>SHOULD</li>
+				<li>MUST NOT</li>
+				<li>MAY</li>
+			</ul>	
+			//-->
+		</div>
+	</section>  
+  <section id="overview">
+      <h2>Overview</h2>
+      <div class="figure">
+          <div><img src="img/spec-bindingness.drawio.png" width="25%"/></div>
+          <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+      </div>
+  </section>
+
+  <section id="classes">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+		<li><a href="#May">may</a></li>
+		<li><a href="#Must">must</a></li>
+		<li><a href="#MustNot">must not</a></li>
+		<li><a href="#Should">should</a></li>
+		<li><a href="#ShouldNot">should not</a></li>
+	</ul>
+    <div class="entity concept" id="May">
+        <h3>may<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>should, recommended (en), zou moeten, aanbevolen (nl)</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-bind/May</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    The item is truly optional.<br/><br/>
+					Dit onderdeel is daadwerkelijk optioneel.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="https://data.nen.nl/spec/docs/#Bindingness">spec:Bindingness</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>			
+        </table>
+    </div>	
+    <div class="entity concept" id="Must">
+        <h3>must<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>must, required, shall (en), moet, vereist (nl)</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-bind/Must</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    An absolute requirement of the specification.<br/><br/>
+					Een absolute vereiste van de specificatie.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="https://data.nen.nl/spec-bind/docs/#Bindingness">spec:Bindingness</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity concept" id="MustNot">
+        <h3>must not<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>must not, shall not (en), mag niet, verboden (nl)</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-bind/Must</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    An absolute prohibition of the specification.<br/><br/>
+					Een absoluut verbod van de specificatie.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="https://data.nen.nl/spec/docs/#Bindingness">spec:Bindingness</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>			
+        </table>
+    </div>
+    <div class="entity concept" id="Should">
+        <h3>should<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>should, recommended (en), zou moeten, aanbevolen (nl)</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-bind/Should</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    Valid reasons may exist in particular circumstances to ignore a particular item, but the full implications must be understood and carefully weighed before choosing a different course.<br/><br/>
+					Geven een sterke wens aan, tenzij er een valide reden is om in een specifiek geval af te wijken. De implicaties daarvan moeten zorgvuldig gewogen zijn voordat er afgeweken wordt.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="https://data.nen.nl/spec/docs/#Bindingness">spec:Bindingness</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>			
+        </table>
+    </div>
+    <div class="entity concept" id="ShouldNot">
+        <h3>should not<sup title="Concept" class="sup-cp">cl</sup></h3>
+		<h4>should not, not recommended (en), zou niet moeten (nl)</h4>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/nen/spec-bind/Should</code></td>
+            </tr>
+            <tr>
+                <th>Definition</th>
+                <td>
+                    Valid reasons may exist in particular circumstances when the particular behavior is acceptable or even useful, but the full implications should be understood and the case carefully weighed.<br/><br/>
+					Geven een ongewenste omstandigheid, waarvan volledige implicaties daarvan zorgvuldig gewogen moeten zijn voordat het in een specifiek geval toegestaan is.
+                </td>
+            </tr>
+			<tr>
+                <th>Parent class</th>
+                <td>
+                    <a href="https://data.nen.nl/spec/docs/#Bindingness">spec:Bindingness</a><sup class="sup-cp" title="concept">cl</sup><br>
+                </td>
+            </tr>			
+        </table>
+    </div>	
+  </section>
+  
+  <section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt>:</dt>
+        <dd><code>https://data.nen.nl/ontologies/spec-bind/</code></dd>	
+        <dt>spec</dt>
+        <dd><code>https://data.nen.nl/ontologies/spec/</code></dd>
+    </dl>
+</section>
+
+<section id="legend">
+	<h2>Legend</h2>
+	<table class="entity">
+	  <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+	  <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+	  <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+	  <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+	  <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+	  <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+	  <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+	</table>
+</section>
+
+<section id="references" style="text-align: left;">
+	<h2>References</h2> 
+	<dl class="bibliography">
+		<dt id="bib-RFC">[RFC 2119]</dt>
+		<dd>Bradner, S., <cite>Key words for use in RFCs to Indicate Requirement Levels</cite>. BCP 14, <a href="https://www.rfc-editor.org/info/rfc2119">RFC 2119</a>, DOI 10.17487/RFC2119, March 1997.</dd>
+		<dt id="bib-SPEC">[SPEC]</dt>
+		<dd>Matousek, R., et. al. <cite>The Specifications Ontology</cite>. 2023, URL: <a href="https://data.nen.nl/spec-cat/docs/">https://data.nen.nl/spec/docs/</a></dd>	
+	</dl>
+</section>
+
+</body>
+</html>
